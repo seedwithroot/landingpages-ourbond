@@ -1,0 +1,56 @@
+┌─────────────────────────────────────────────┬───────────────────┬───────────────────┬───────────────────┐
+│ FEATURE                                     │    DEFENDER       │      SENTRY       │     GUARDIAN      │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ 24/7 LIVE SECURITY AGENTS                                                                               │
+│ Specially trained agents for a wide variety of security situations                                      │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Engagements Per Month (per person)          │        —          │        10         │        30         │
+│ Via Video, Audio, and Text                  │        —          │        ✓          │        ✓          │
+│ Trained and Certified                       │        —          │        ✓          │        ✓          │
+│ Coordinate First Responders                 │        —          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ MONITORS YOU & FAMILY ON DEMAND                                                                         │
+│ Sophisticated algorithms + agents step in when needed                                                   │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Schedule Security Checks                    │        —          │        ✓          │        ✓          │
+│ Track Me On The Go                          │        —          │        ✓          │        ✓          │
+│ Track My Walk                               │        —          │        ✓          │        ✓          │
+│ Ready An Agent                              │        —          │        ✓          │        ✓          │
+│ Video Monitor Me                            │        —          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ BOND ARRANGES BODYGUARDS, CARS, & MORE *                                                                │
+│ Third-party services arranged for members in stressful situations (extra costs apply)                   │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Physical Bodyguards                         │        —          │        ✓          │        ✓          │
+│ Cars To Pick You Up                         │        —          │        ✓          │        ✓          │
+│ Roadside Assistance                         │        —          │        ✓          │        ✓          │
+│ Telemedicine                                │        —          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ VIEW LOVED ONES' REAL-TIME LOCATION                                                                     │
+│ Real-time location of loved ones who are also Bond members                                              │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Real-Time Location                          │        ✓          │        ✓          │        ✓          │
+│ Unlimited Friends + Family                  │        ✓          │        ✓          │        ✓          │
+│ Alerts If Permissions Change                │        ✓          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ ALERTS WHEN LOVED ONES ARRIVE / DEPART                                                                  │
+│ Receive alerts when loved ones arrive or depart key places                                              │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Custom Places                               │        ✓          │        ✓          │        ✓          │
+│ Unlimited Real-Time Alerts                  │        ✓          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ URGENT TOOLS                                                                                            │
+│ Tools to support you in time-sensitive situations                                                       │
+├─────────────────────────────────────────────┼───────────────────┼───────────────────┼───────────────────┤
+│ Turn Your Phone Into A Siren                │        ✓          │        ✓          │        ✓          │
+│ Fast Dial 911                               │        ✓          │        ✓          │        ✓          │
+├─────────────────────────────────────────────┼───────────────────┴───────────────────┴───────────────────┤
+│ PROTECTION PLAN                             │                                                           │
+├─────────────────────────────────────────────┼───────────────────┬─────────────────────┬─────────────────┤
+│                                             │    DEFENDER       │       SENTRY        │    GUARDIAN     │
+│                                             │                   │  Monthly │  Annual  │ Monthly │Annual │
+├─────────────────────────────────────────────┼───────────────────┼──────────┼──────────┼─────────┼───────┤
+│ Personal                                    │       FREE        │  $29.99  │ $323.89  │ $34.99  │$377.89│
+│ Family Add-On  (4 additional members)       │       FREE        │  $19.99  │ $215.89  │ $19.99  │$215.89│
+│ Annual Savings                              │        —          │    —     │   10%    │    —    │  10%  │
+└─────────────────────────────────────────────┴───────────────────┴──────────┴──────────┴─────────┴───────┘

@@ -1,0 +1,276 @@
+---
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OurBond — Dev Index</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f3f4f6; margin: 0; padding: 2rem; }
+    h1 { font-size: 1.125rem; font-weight: 700; color: #111; margin: 0 0 0.25rem; }
+    .subtitle { font-size: 0.8125rem; color: #6b7280; margin: 0 0 2rem; }
+    .section { margin-bottom: 2.5rem; }
+    .section-title { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb; }
+    .version-tag { display: inline-block; font-size: 0.6875rem; font-weight: 600; background: #dbeafe; color: #1d4ed8; border-radius: 4px; padding: 0.125rem 0.4rem; margin-left: 0.5rem; vertical-align: middle; }
+    .segment-tag { display: inline-block; font-size: 0.6875rem; font-weight: 600; border-radius: 4px; padding: 0.125rem 0.4rem; margin-left: 0.5rem; vertical-align: middle; }
+    .seg-family     { background: #dcfce7; color: #166534; }
+    .seg-individual { background: #fef9c3; color: #713f12; }
+    .seg-students   { background: #ede9fe; color: #5b21b6; }
+    .seg-nightlife  { background: #fce7f3; color: #831843; }
+    .seg-solo       { background: #ffedd5; color: #7c2d12; }
+    .seg-workers    { background: #e0f2fe; color: #0c4a6e; }
+    .seg-stub       { background: #f3f4f6; color: #6b7280; }
+    .seg-template   { background: #dbeafe; color: #1d4ed8; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.625rem; }
+    a.card { display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.75rem 1rem; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+    a.card:hover { border-color: #2563eb; box-shadow: 0 0 0 3px #dbeafe; }
+    a.card .label { font-size: 0.9375rem; font-weight: 600; color: #111; display: block; margin-bottom: 0.2rem; }
+    a.card .url { font-size: 0.75rem; color: #6b7280; font-family: monospace; }
+    a.card.template { border-left: 3px solid #2563eb; }
+    .segments-legend { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .segments-legend span { font-size: 0.75rem; font-weight: 600; border-radius: 4px; padding: 0.25rem 0.625rem; }
+  </style>
+</head>
+<body>
+  <h1>OurBond — Dev Index</h1>
+  <p class="subtitle">Pages grouped by audience segment. Segment variants are defined in <code>src/data/service-sections.js</code>.</p>
+
+  <!-- SEGMENT LEGEND -->
+  <div class="segments-legend">
+    <span class="segment-tag seg-family">family</span>
+    <span class="segment-tag seg-individual">individual</span>
+    <span class="segment-tag seg-students">students</span>
+    <span class="segment-tag seg-nightlife">nightlife</span>
+    <span class="segment-tag seg-solo">soloTravel</span>
+    <span class="segment-tag seg-workers">loneWorkers</span>
+    <span class="segment-tag seg-stub">stub (unset)</span>
+  </div>
+
+  <!-- TEMPLATES -->
+  <div class="section">
+    <div class="section-title">Templates <span class="version-tag">source</span></div>
+    <div class="grid">
+      <a class="card template" href="/feature-service-template-v1">
+        <span class="label">Feature Service Template <span class="version-tag">v1</span></span>
+        <span class="url">/feature-service-template-v1</span>
+      </a>
+      <a class="card template" href="/families-peace-v2">
+        <span class="label">Families Peace <span class="version-tag">dev</span></span>
+        <span class="url">/families-peace-v2</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: family -->
+  <div class="section">
+    <div class="section-title">Segment — Family <span class="segment-tag seg-family">family</span></div>
+    <div class="grid">
+      <a class="card" href="/services/location-services">
+        <span class="label">Location Services <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/location-services</span>
+      </a>
+      <a class="card" href="/services/location-services-premium">
+        <span class="label">Location Services Premium <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/location-services-premium</span>
+      </a>
+      <a class="card" href="/services/ready-an-agent">
+        <span class="label">Ready An Agent <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/ready-an-agent</span>
+      </a>
+      <a class="card" href="/services/video-monitor-me">
+        <span class="label">Video Monitor Me <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/video-monitor-me</span>
+      </a>
+      <a class="card" href="/services/send-me-a-car">
+        <span class="label">Send Me A Car <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/send-me-a-car</span>
+      </a>
+      <a class="card" href="/services/siren">
+        <span class="label">Siren <span class="segment-tag seg-family">family</span></span>
+        <span class="url">/services/siren</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: individual (commuters) -->
+  <div class="section">
+    <div class="section-title">Segment — Individual <span class="segment-tag seg-individual">individual</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go">
+        <span class="label">Track Me On The Go <span class="segment-tag seg-individual">individual</span></span>
+        <span class="url">/services/track-me-on-the-go</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: students -->
+  <div class="section">
+    <div class="section-title">Segment — Students <span class="segment-tag seg-students">students</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go-students">
+        <span class="label">Track Me On The Go — Students <span class="segment-tag seg-students">students</span></span>
+        <span class="url">/services/track-me-on-the-go-students</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: nightlife -->
+  <div class="section">
+    <div class="section-title">Segment — Nightlife & Dating <span class="segment-tag seg-nightlife">nightlife</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go-nightlife">
+        <span class="label">Track Me On The Go — Nightlife <span class="segment-tag seg-nightlife">nightlife</span></span>
+        <span class="url">/services/track-me-on-the-go-nightlife</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: soloTravel -->
+  <div class="section">
+    <div class="section-title">Segment — Solo Travel <span class="segment-tag seg-solo">soloTravel</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go-solo-travel">
+        <span class="label">Track Me On The Go — Solo Travel <span class="segment-tag seg-solo">soloTravel</span></span>
+        <span class="url">/services/track-me-on-the-go-solo-travel</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SEGMENT: loneWorkers -->
+  <div class="section">
+    <div class="section-title">Segment — Lone Workers <span class="segment-tag seg-workers">loneWorkers</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go-lone-workers">
+        <span class="label">Track Me On The Go — Lone Workers <span class="segment-tag seg-workers">loneWorkers</span></span>
+        <span class="url">/services/track-me-on-the-go-lone-workers</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- OTHER / LEGACY -->
+  <div class="section">
+    <div class="section-title">Other / Legacy</div>
+    <div class="grid">
+      <a class="card" href="/families-fear">
+        <span class="label">Families Fear</span>
+        <span class="url">/families-fear</span>
+      </a>
+      <a class="card" href="/families-peace">
+        <span class="label">Families Peace</span>
+        <span class="url">/families-peace</span>
+      </a>
+      <a class="card" href="/individuals-fear">
+        <span class="label">Individuals Fear</span>
+        <span class="url">/individuals-fear</span>
+      </a>
+      <a class="card" href="/individuals-peace">
+        <span class="label">Individuals Peace</span>
+        <span class="url">/individuals-peace</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
+<body>
+  <h1>OurBond — Dev Index</h1>
+  <p class="subtitle">All pages in this workspace, grouped by template version.</p>
+
+  <!-- TEMPLATES -->
+  <div class="section">
+    <div class="section-title">Templates <span class="version-tag">source</span></div>
+    <div class="grid">
+      <a class="card template" href="/feature-service-template-v1">
+        <span class="label">Feature Service Template <span class="version-tag">v1</span></span>
+        <span class="url">/feature-service-template-v1</span>
+      </a>
+      <a class="card template" href="/families-peace-v2">
+        <span class="label">Families Peace <span class="version-tag">dev</span></span>
+        <span class="url">/families-peace-v2</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- TEMPLATE v1 — SERVICES -->
+  <div class="section">
+    <div class="section-title">Track Me On The Go <span class="version-tag">template v1</span></div>
+    <div class="grid">
+      <a class="card" href="/services/track-me-on-the-go">
+        <span class="label">Commuters & Night Shifts</span>
+        <span class="url">/services/track-me-on-the-go</span>
+      </a>
+      <a class="card" href="/services/track-me-on-the-go-students">
+        <span class="label">Students & Parents</span>
+        <span class="url">/services/track-me-on-the-go-students</span>
+      </a>
+      <a class="card" href="/services/track-me-on-the-go-nightlife">
+        <span class="label">Nightlife & Dating</span>
+        <span class="url">/services/track-me-on-the-go-nightlife</span>
+      </a>
+      <a class="card" href="/services/track-me-on-the-go-lone-workers">
+        <span class="label">Lone Workers</span>
+        <span class="url">/services/track-me-on-the-go-lone-workers</span>
+      </a>
+      <a class="card" href="/services/track-me-on-the-go-solo-travel">
+        <span class="label">Solo Travel</span>
+        <span class="url">/services/track-me-on-the-go-solo-travel</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- TEMPLATE v1 — OTHER SERVICES (stubs) -->
+  <div class="section">
+    <div class="section-title">Other Services — Stub <span class="version-tag">template v1</span></div>
+    <div class="grid">
+      <a class="card" href="/services/location-services">
+        <span class="label">Location Services</span>
+        <span class="url">/services/location-services</span>
+      </a>
+      <a class="card" href="/services/location-services-premium">
+        <span class="label">Location Services (Premium)</span>
+        <span class="url">/services/location-services-premium</span>
+      </a>
+      <a class="card" href="/services/ready-an-agent">
+        <span class="label">Ready An Agent</span>
+        <span class="url">/services/ready-an-agent</span>
+      </a>
+      <a class="card" href="/services/video-monitor-me">
+        <span class="label">Video Monitor Me</span>
+        <span class="url">/services/video-monitor-me</span>
+      </a>
+      <a class="card" href="/services/send-me-a-car">
+        <span class="label">Send Me A Car</span>
+        <span class="url">/services/send-me-a-car</span>
+      </a>
+      <a class="card" href="/services/siren">
+        <span class="label">Siren</span>
+        <span class="url">/services/siren</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- OTHER / LEGACY -->
+  <div class="section">
+    <div class="section-title">Other / Legacy</div>
+    <div class="grid">
+      <a class="card" href="/families-fear">
+        <span class="label">Families Fear</span>
+        <span class="url">/families-fear</span>
+      </a>
+      <a class="card" href="/families-peace">
+        <span class="label">Families Peace</span>
+        <span class="url">/families-peace</span>
+      </a>
+      <a class="card" href="/individuals-fear">
+        <span class="label">Individuals Fear</span>
+        <span class="url">/individuals-fear</span>
+      </a>
+      <a class="card" href="/individuals-peace">
+        <span class="label">Individuals Peace</span>
+        <span class="url">/individuals-peace</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

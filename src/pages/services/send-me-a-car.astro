@@ -1,0 +1,588 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import reviewsData from '../../data/reviews.js';
+
+// ─────────────────────────────────────────────────────────────
+// PAGE CONFIG — edit this object to create a new template.
+// Duplicate this file, swap the values, done.
+// ─────────────────────────────────────────────────────────────
+const page = {
+
+  // <head>
+  meta: {
+    title: "When They're Safe, You're Safe | Bond Family App",
+    description: "Real-time location and arrival alerts for your whole family. Know they're safe, wherever they are.",
+  },
+
+  // Top nav CTA and hero section
+  hero: {
+    label: "A — Hero",
+    headline: "When they're safe,\nyou're safe.",
+    subheadline: "Track your family's location, get arrival alerts the moment they land somewhere safe, and connect to a live security agent in seconds — all in one app.",
+    trustLine: "Trusted by families across the US",
+    image: "https://www.ourbond.com/wp-content/uploads/slider118/psc_content_image.png",
+    imageAlt: "Bond app on phone",
+    showAppButtons: true,
+  },
+
+  // Feature card grid section (small cards, 3-up)
+  featureGrid: {
+    label: "B — Feature Cards",
+    headline: "Bond is more than just {focusedService}.",
+    subheadline: "Real-time location is just the start. Bond wraps your family in a complete layer of protection — live agents, arrival alerts, and more.",
+    video: "https://www.ourbond.com/wp-content/uploads/slider112/bond_website_loop_v5_comp_x3.mp4",
+    showAppButtons: true,
+    cards: [
+      {
+        icon: "map",
+        title: "Real-time location",
+        body: "See your whole family on a live map — where they are, which direction they're moving, and when they'll arrive.",
+      },
+      {
+        icon: "bell",
+        title: "Arrival & departure alerts",
+        body: "Get notified the moment a family member arrives at school, work, or home — without anyone having to send a text.",
+      },
+      {
+        icon: "user-check",
+        title: "Live security agents",
+        body: "Trained agents available 24/7 via video, audio, or text. One tap away from real human help — any time.",
+      },
+    ],
+  },
+
+  // Alternating columnar sections (text + media)
+  // media.type: "video-autoplay" | "video-clickplay" | "image"
+  featureSections: [
+    {
+      id: "feature-location",
+      label: "C — Focused Service",
+      position: "after-reviews",
+      layout: "copy-left",   // "copy-left" | "copy-right"
+      eyebrow: "Real-time location",
+      headline: "Always know exactly where they are.",
+      body: "See your whole family on a live map — where they are, which direction they're moving, and how long until they arrive. No more wondering. No more waiting for a text back.",
+      bullets: [
+        "Live location map for your whole family",
+        "Arrival and departure alerts",
+        "Custom places — home, school, practice",
+        "Unlimited real-time alerts",
+      ],
+      showAppButtons: true,
+      media: {
+        type: "video-clickplay",
+        poster: "https://www.ourbond.com/wp-content/themes/bond/src/images/how-bond-works/location-services-video-still.jpg",
+        src: "https://www.ourbond.com/wp-content/uploads/2019/11/bond_location_services.mp4",
+        alt: "Location Services — click to play",
+      },
+    },
+    {
+      id: "feature-arrival",
+      label: "D — Arrival Alerts",
+      position: "after-grid",
+      layout: "copy-right",
+      eyebrow: "Arrival alerts",
+      headline: "You'll know the moment they're safe.",
+      body: "Bond monitors your family member's journey from the moment they leave to when they arrive. If they go off-route or don't check in on time, we act — automatically.",
+      bullets: [
+        "Journey monitoring, start to finish",
+        "Auto-escalation if they don't arrive on time",
+        "Emergency contacts notified instantly",
+        "GPS and photo sent to first responders if needed",
+      ],
+      showAppButtons: true,
+      media: {
+        type: "video-autoplay",
+        src: "https://www.ourbond.com/wp-content/themes/bond/src/gifs/track-me-on-the-go.mp4",
+        alt: "Track Me On The Go",
+      },
+    },
+    {
+      id: "feature-agent",
+      label: "E — Live Agent",
+      position: "after-grid",
+      layout: "copy-left",
+      eyebrow: "Live security agents",
+      headline: "A real person. One tap away. Any time.",
+      body: "When something feels wrong, your family shouldn't have to face it alone. Bond's trained security agents are available 24/7 — via video, audio, or text — ready to help in seconds and coordinate with first responders if things escalate.",
+      bullets: [
+        "Trained and certified agents, not call-center scripts",
+        "Available via video, audio, or text",
+        "Coordinates police, fire, and EMS on your behalf",
+        "No security need is too small",
+      ],
+      showAppButtons: true,
+      media: {
+        type: "video-autoplay",
+        src: "https://www.ourbond.com/wp-content/themes/bond/src/gifs/video-monitor-me.mp4",
+        alt: "Video Monitor Me",
+      },
+    },
+  ],
+
+  // Dark break / emotional hook CTA
+  hook: {
+    label: "F — Hook CTA",
+    headline: "Most parents find out something went wrong\nafter it already happened.",
+    body: "Bond keeps you one step ahead. Real-time location. Instant arrival alerts. A live agent seconds away — before you ever need to call 911.",
+    showAppButtons: true,
+  },
+
+  // Social proof section
+  socialProof: {
+    label: "G — Social Proof",
+    eyebrow: "Trusted by real families",
+    headline: "Loved by\nfamilies\neverywhere.",
+    rating: "4.8 out of 5",
+    showAppButtons: true,
+    reviewCount: 2,
+  },
+
+};
+
+const reviews = reviewsData.reviews.slice(0, 5);
+
+// Derive the focused service label (section C) for use in featureGrid headline
+const focusedService = page.featureSections.find(s => s.position === 'after-reviews')?.eyebrow ?? 'location tracking';
+const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}', focusedService);
+---
+
+<Layout title={page.meta.title} description={page.meta.description}>
+
+  <!-- HERO -->
+  <section id="hero" style="background: #faf9f6; padding: 5rem 0 3rem; position: relative;">
+    <span class="section-label">{page.hero.label}</span>
+    <div class="hero-grid">
+      <div>
+        <h1 style="font-size: 3.25rem; font-weight: 800; line-height: 1.15; color: #111; margin: 0 0 1.25rem;">
+          {page.hero.headline.split('\n').map((line, i) => (
+            <>{line}{i < page.hero.headline.split('\n').length - 1 && <br />}</>
+          ))}
+        </h1>
+        <p style="font-size: 1.1875rem; color: #444; line-height: 1.6; margin: 0 0 2rem; max-width: 480px;">
+          {page.hero.subheadline}
+        </p>
+        {page.hero.showAppButtons && (
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+          </div>
+        )}
+        {page.hero.trustLine && (
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">{page.hero.trustLine}</p>
+        )}
+      </div>
+      <div class="hero-phone" style="display: flex; justify-content: center;">
+        <img src={page.hero.image} alt={page.hero.imageAlt} style="max-width: 420px; width: 100%; border-radius: 16px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW STRIP -->
+  <section id="review-strip" style="background: #fff; padding: 2.5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; position: relative;">
+    <span class="section-label">B.1 — Review Strip</span>
+    <div style="display: flex; gap: 1.5rem; padding: 0 2rem; flex-wrap: wrap; justify-content: center; max-width: 1100px; margin: 0 auto;">
+      {reviews.slice(0, 4).map(r => (
+        <div style="background: #faf9f6; border-radius: 12px; padding: 1.25rem 1.5rem; max-width: 300px; flex: 1; min-width: 240px;">
+          <div style="color: #f59e0b; font-size: 0.875rem; margin-bottom: 0.5rem;">{"★".repeat(r.rating ?? 5)}</div>
+          <p style="font-size: 0.9375rem; color: #333; line-height: 1.5; margin: 0 0 0.75rem;">"{r.text.slice(0, 120)}…"</p>
+          <p style="font-size: 0.875rem; font-weight: 600; color: #111; margin: 0;">— {r.author}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ALTERNATING SECTIONS: after-reviews -->
+  {page.featureSections.filter(s => s.position === 'after-reviews').map(s => (
+    <section id={s.id} style={`background: ${s.bg}; padding: 5rem 0; position: relative;`}>
+      <span class="section-label">{s.label}</span>
+      <div class={`feature-row${s.layout === 'copy-right' ? ' feature-row--media-first' : ''}`}>
+        {s.layout === 'copy-left' && (
+          <div class="feature-copy">
+            <p class="feature-eyebrow">{s.eyebrow}</p>
+            <h2 class="feature-headline">{s.headline}</h2>
+            <p class="feature-body">{s.body}</p>
+            <ul class="feature-list">{s.bullets.map(b => <li>{b}</li>)}</ul>
+            {s.showAppButtons && (
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+              </div>
+            )}
+          </div>
+        )}
+        <div class="feature-media">
+          {s.media.type === 'video-clickplay' ? (
+            <div class="video-player" data-video={s.media.src}>
+              <img src={s.media.poster} alt={s.media.alt} class="video-player__poster feature-img" />
+              <button class="video-player__btn" aria-label="Play video">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </button>
+              <video class="video-player__video feature-img" preload="none" controls style="display:none;"></video>
+            </div>
+          ) : s.media.type === 'video-autoplay' ? (
+            <video src={s.media.src} class="feature-img" autoplay muted loop playsinline></video>
+          ) : (
+            <img src={s.media.src} alt={s.media.alt} class="feature-img" />
+          )}
+        </div>
+        {s.layout === 'copy-right' && (
+          <div class="feature-copy">
+            <p class="feature-eyebrow">{s.eyebrow}</p>
+            <h2 class="feature-headline">{s.headline}</h2>
+            <p class="feature-body">{s.body}</p>
+            <ul class="feature-list">{s.bullets.map(b => <li>{b}</li>)}</ul>
+            {s.showAppButtons && (
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <!-- FEATURE CARD GRID -->
+  <section id="features" style="background: #faf9f6; padding: 5rem 0; position: relative;">
+    <span class="section-label">{page.featureGrid.label}</span>
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #111; text-align: center; margin: 0 0 0.75rem;">{featureGridHeadline}</h2>
+      <p style="text-align: center; color: #555; font-size: 1.125rem; margin: 0 0 1.75rem; max-width: 600px; margin-left: auto; margin-right: auto;">{page.featureGrid.subheadline}</p>
+      {page.featureGrid.showAppButtons && (
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+          <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+          <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+        </div>
+      )}
+      {page.featureGrid.video && (
+        <div style="margin-bottom: 3.5rem; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+          <video
+            src={page.featureGrid.video}
+            autoplay muted loop playsinline
+            style="width: 100%; display: block;"
+          ></video>
+        </div>
+      )}
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        {page.featureGrid.cards.map(card => (
+          <div style="background: #fff; border-radius: 16px; padding: 2rem; border: 1px solid #eee;">
+            <h3 style="font-size: 1.3125rem; font-weight: 700; color: #111; margin: 0 0 0.6rem;">{card.title}</h3>
+            <p style="font-size: 1rem; color: #555; line-height: 1.6; margin: 0;">{card.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ALTERNATING SECTIONS: after-grid -->
+  {page.featureSections.filter(s => s.position === 'after-grid').map(s => (
+    <section id={s.id} style={`background: ${s.bg}; padding: 5rem 0; position: relative;`}>
+      <span class="section-label">{s.label}</span>
+      <div class={`feature-row${s.layout === 'copy-right' ? ' feature-row--media-first' : ''}`}>
+
+        {s.layout === 'copy-left' && (
+          <div class="feature-copy">
+            <p class="feature-eyebrow">{s.eyebrow}</p>
+            <h2 class="feature-headline">{s.headline}</h2>
+            <p class="feature-body">{s.body}</p>
+            <ul class="feature-list">
+              {s.bullets.map(b => <li>{b}</li>)}
+            </ul>
+            {s.showAppButtons && (
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class="feature-media">
+          {s.media.type === 'video-clickplay' ? (
+            <div class="video-player" data-video={s.media.src}>
+              <img src={s.media.poster} alt={s.media.alt} class="video-player__poster feature-img" />
+              <button class="video-player__btn" aria-label="Play video">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </button>
+              <video class="video-player__video feature-img" preload="none" controls style="display:none;"></video>
+            </div>
+          ) : s.media.type === 'video-autoplay' ? (
+            <video src={s.media.src} class="feature-img" autoplay muted loop playsinline></video>
+          ) : (
+            <img src={s.media.src} alt={s.media.alt} class="feature-img" />
+          )}
+        </div>
+
+        {s.layout === 'copy-right' && (
+          <div class="feature-copy">
+            <p class="feature-eyebrow">{s.eyebrow}</p>
+            <h2 class="feature-headline">{s.headline}</h2>
+            <p class="feature-body">{s.body}</p>
+            <ul class="feature-list">
+              {s.bullets.map(b => <li>{b}</li>)}
+            </ul>
+            {s.showAppButtons && (
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+              </div>
+            )}
+          </div>
+        )}
+
+      </div>
+    </section>
+  ))}
+
+  <!-- EMOTIONAL HOOK -->
+  <section id="hook" style="background: #111; padding: 5rem 0; position: relative;">
+    <span class="section-label section-label--dark">{page.hook.label}</span>
+    <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+      <h2 style="font-size: 2.75rem; font-weight: 800; color: #fff; line-height: 1.2; margin: 0 0 1.25rem;">
+        {page.hook.headline.split('\n').map((line, i) => (
+          <>{line}{i < page.hook.headline.split('\n').length - 1 && <br />}</>
+        ))}
+      </h2>
+      <p style="font-size: 1.1875rem; color: #aaa; line-height: 1.65; margin: 0 0 2.5rem;">{page.hook.body}</p>
+      {page.hook.showAppButtons && (
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+          <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 52px; width: auto;" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section id="social-proof" style="background: #faf9f6; padding: 5rem 0; position: relative;">
+    <span class="section-label">{page.socialProof.label}</span>
+    <div class="proof-grid">
+      <div>
+        <p style="font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 1rem;">{page.socialProof.eyebrow}</p>
+        <h2 style="font-size: 3rem; font-weight: 800; color: #111; margin: 0 0 1rem; line-height: 1.1;">
+          {page.socialProof.headline.split('\n').map((line, i) => (
+            <>{line}{i < page.socialProof.headline.split('\n').length - 1 && <br />}</>
+          ))}
+        </h2>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <span style="color: #f59e0b; font-size: 1.25rem;">★★★★★</span>
+          <span style="font-size: 1rem; color: #333; font-weight: 600;">{page.socialProof.rating}</span>
+        </div>
+        {page.socialProof.showAppButtons && (
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+          </div>
+        )}
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {reviews.slice(0, page.socialProof.reviewCount).map(r => (
+          <div style="background: #fff; border-radius: 12px; padding: 1.5rem; border: 1px solid #eee;">
+            <div style="color: #f59e0b; margin-bottom: 0.5rem;">{"★".repeat(r.rating ?? 5)}</div>
+            <p style="font-size: 1rem; color: #333; line-height: 1.55; margin: 0 0 0.75rem;">"{r.text.slice(0, 160)}…"</p>
+            <p style="font-size: 0.875rem; font-weight: 700; color: #111; margin: 0;">{r.author}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  :global(body) { background: #faf9f6; color: #111; }
+
+  /* ── Section labels (dev reference, remove when done) ── */
+  .section-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .section-label--dark {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  /* ── Structural grids ─────────────────────────────────── */
+  .hero-grid,
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── Columnar feature rows ────────────────────────────── */
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .feature-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2563eb;
+    margin: 0 0 0.75rem;
+  }
+
+  .feature-headline {
+    font-size: clamp(1.875rem, 3vw, 2.625rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.15;
+    margin: 0 0 1.125rem;
+  }
+
+  .feature-body {
+    font-size: 1.0625rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0 0 1.75rem;
+    max-width: 500px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .feature-list li {
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+
+  .feature-list li::before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.5 6.062l1.772-1.906L4.347 6.12 10.052.6 11.5 2.528 4.297 9.4.5 6.062z' fill='%23fff'/%3E%3C/svg%3E");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #7870c4;
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+
+  .feature-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feature-img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+
+  /* ── Responsive ───────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero-grid,
+    .proof-grid,
+    .feature-row {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .feature-row--reverse {
+      direction: ltr;
+    }
+    .hero-grid h1 { font-size: 2.25rem !important; }
+    #hook h2 { font-size: 2rem !important; }
+    .hero-phone { display: none; }
+  }
+
+  /* ── Click-to-play video player ──────────────────────── */
+  .video-player {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 460px;
+    cursor: pointer;
+  }
+
+  .video-player__poster {
+    display: block;
+  }
+
+  .video-player__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .video-player__btn:hover {
+    background: rgba(37, 99, 235, 0.85);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .video-player__video {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.video-player').forEach(player => {
+    const poster = player.querySelector('.video-player__poster');
+    const btn = player.querySelector('.video-player__btn');
+    const video = player.querySelector('.video-player__video');
+    const src = player.dataset.video;
+
+    function play() {
+      if (!video.src) video.src = src;
+      poster.style.display = 'none';
+      btn.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    }
+
+    poster.addEventListener('click', play);
+    btn.addEventListener('click', play);
+  });
+</script>
+

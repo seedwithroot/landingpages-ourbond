@@ -1,0 +1,179 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role?: string;
+  company?: string;
+  image?: string;
+  rating?: number;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+  layout?: 'grid' | 'carousel';
+}
+
+const { testimonials, layout = 'grid' } = Astro.props;
+---
+
+<section class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-header">
+      <h2>What Our Customers Say</h2>
+      <p>Join thousands of satisfied customers</p>
+    </div>
+    <div class={`testimonials-${layout}`}>
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          {testimonial.rating && (
+            <div class="rating">
+              {'⭐'.repeat(testimonial.rating)}
+            </div>
+          )}
+          <blockquote class="quote">"{testimonial.quote}"</blockquote>
+          <div class="author-info">
+            {testimonial.image && (
+              <img src={testimonial.image} alt={testimonial.author} class="author-image" />
+            )}
+            <div class="author-details">
+              <div class="author-name">{testimonial.author}</div>
+              {testimonial.role && <div class="author-role">{testimonial.role}</div>}
+              {testimonial.company && <div class="author-company">{testimonial.company}</div>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 6rem 0;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+  }
+  
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .testimonials-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  
+  .testimonials-header p {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .testimonial-card {
+    background: var(--near-black);
+    padding: 2.5rem;
+    border-radius: 0;
+    position: relative;
+    transition: background 0.25s;
+  }
+  
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: width 0.35s ease;
+  }
+  
+  .testimonial-card:hover {
+    background: var(--panel);
+  }
+  
+  .testimonial-card:hover::before {
+    width: 100%;
+  }
+  
+  .rating {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #fbbf24;
+  }
+  
+  .quote {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #e8e6e0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    opacity: 0.95;
+  }
+  
+  .author-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .author-name {
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  .author-role,
+  .author-company {
+    font-size: 0.875rem;
+    color: #888;
+    font-weight: 300;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 3rem 0;
+    }
+    
+    .testimonials-header {
+      margin-bottom: 2.5rem;
+    }
+    
+    .testimonial-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

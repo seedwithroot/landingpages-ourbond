@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CheckmarkList from '../components/CheckmarkList.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import BenefitsColumn from '../components/BenefitsColumn.astro';
+import CTA from '../components/CTA.astro';
+import ReviewBlock from '../components/ReviewBlock.astro';
+import ServicesShowcase from '../components/ServicesShowcase.astro';
+import reviewsData from '../data/reviews.js';
+import tracksData from '../data/tracks.js';
+
+const individualReviews = reviewsData.reviews.filter(r => r.segment === 'individuals' || r.useCase === 'late-night-walk' || r.useCase === 'traveling-alone');
+
+// Get individual services from tracks - prioritize preventative services
+const individualServices = tracksData.individuals.services.filter(s => s.category === 'PREVENTATIVE').slice(0, 4);
+
+// LIGHT THEME - Peace of mind messaging for individuals
+const benefits = [
+  "Peace of mind you deserve",
+  "Simple solutions that work for you",
+  "Take control with confidence"
+];
+
+const features = [
+  {
+    "icon": "shield",
+    "title": "Reliable Protection",
+    "description": "[PLACEHOLDER] Trustworthy solutions designed to give you confidence and security in your daily life."
+  },
+  {
+    "icon": "smile",
+    "title": "Easy & Straightforward",
+    "description": "[PLACEHOLDER] No complicated processes. Simple tools that fit seamlessly into your life."
+  },
+  {
+    "icon": "check-circle",
+    "title": "Proven Results",
+    "description": "[PLACEHOLDER] Join thousands who have found the peace of mind they were looking for."
+  }
+];
+
+const detailedBenefits = [
+  {
+    "icon": "heart",
+    "title": "Personalized for You",
+    "desc": "[PLACEHOLDER] Solutions tailored to your unique situation and needs. You deserve support that works for you."
+  },
+  {
+    "icon": "check-circle",
+    "title": "Simple Process",
+    "desc": "[PLACEHOLDER] Getting started is easy. No complicated forms or confusing steps. Just straightforward support."
+  },
+  {
+    "icon": "shield",
+    "title": "Trusted & Secure",
+    "desc": "[PLACEHOLDER] Your privacy and security matter. Reliable service you can depend on, whenever you need it."
+  }
+];
+---
+
+<Layout 
+  title="[PLACEHOLDER] Individual Support Services - Find Your Peace of Mind"
+  description="[PLACEHOLDER] Simple, trusted solutions designed to give you the confidence and security you deserve."
+>
+  <Hero 
+    headline="[PLACEHOLDER] Find the Peace of Mind You Deserve"
+    subheadline="[PLACEHOLDER] Take control with simple, trusted solutions designed for your unique needs. You don't have to figure this out alone."
+    ctaText="Get Started"
+    ctaUrl="#"
+    showForm={false}
+    heroImage="https://www.ourbond.com/wp-content/uploads/slider118/psc_content_image.png"
+    trustLine="✓ Trusted Protection ✓ Simple Process ✓ Personal Support"
+    pattern="f-shaped"
+  />
+  
+  <section style="padding: 2rem 0; background: white; border-bottom: 1px solid #e8ecef;">
+    <div class="container">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <a href="#" class="cta-large">Start Your Journey Today</a>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9375rem;">
+        [PLACEHOLDER] Join others who found their peace of mind
+      </p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0; background: #f8f9fa;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+        [PLACEHOLDER] Why People Choose Us
+      </h2>
+      <p style="font-size: 1.125rem; color: #555; margin-bottom: 3rem; max-width: 800px;">
+        [PLACEHOLDER] You deserve support that understands your unique situation. Our approach is simple, personal, and designed to give you confidence.
+      </p>
+      
+      <div style="max-width: 800px;">
+        <CheckmarkList items={benefits} columns={1} size="large" />
+      </div>
+    </div>
+  </section>
+
+  <ServicesShowcase 
+    services={individualServices}
+    theme="light"
+  />
+
+  <section style="padding: 4rem 0; background: white;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+        [PLACEHOLDER] How We Help You
+      </h2>
+      <FeaturesGrid features={features} columns={3} />
+    </div>
+  </section>
+
+  <BenefitsColumn benefits={detailedBenefits} alignment="left" />
+
+  <ReviewBlock 
+    reviews={individualReviews}
+    theme="light"
+    title="Join Thousands Who Feel Safer"
+    subtitle="Real stories from people who found their peace of mind"
+    maxReviews={3}
+  />
+
+  <CTA 
+    headline="[PLACEHOLDER] Ready to Find Your Peace of Mind?"
+    subtext="[PLACEHOLDER] Start your journey today with simple, trusted support designed just for you."
+    ctaText="Get Started Now"
+    ctaUrl="#"
+    variant="banner"
+  />
+</Layout>

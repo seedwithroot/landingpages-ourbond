@@ -1,0 +1,117 @@
+---
+interface Props {
+  phoneNumber: string;
+  displayNumber?: string;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'outline' | 'white';
+}
+
+const { 
+  phoneNumber, 
+  displayNumber = phoneNumber,
+  size = 'medium',
+  variant = 'primary'
+} = Astro.props;
+
+const sizeClasses = {
+  small: 'phone-cta-small',
+  medium: 'phone-cta-medium',
+  large: 'phone-cta-large'
+};
+
+const variantClasses = {
+  primary: 'phone-cta-primary',
+  outline: 'phone-cta-outline',
+  white: 'phone-cta-white'
+};
+---
+
+<a href={`tel:${phoneNumber}`} class={`phone-cta ${sizeClasses[size]} ${variantClasses[variant]}`}>
+  <span class="phone-number">{displayNumber}</span>
+</a>
+
+<style>
+  .phone-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-weight: 900;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .phone-cta-primary {
+    background: var(--accent);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  }
+  
+  .phone-cta-primary:hover {
+    background: var(--accent-dim);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  }
+  
+  .phone-cta-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+  }
+  
+  .phone-cta-outline:hover {
+    background: var(--accent);
+    color: var(--white);
+  }
+  
+  .phone-cta-white {
+    background: var(--white);
+    color: var(--text);
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .phone-cta-white:hover {
+    background: var(--panel);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  
+  .phone-cta-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .phone-cta-small .phone-icon {
+    font-size: 1.25em;
+  }
+  
+  .phone-cta-medium {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  .phone-cta-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .phone-cta-large .phone-icon {
+    font-size: 1.75em;
+  }
+  
+  @media (max-width: 768px) {
+    .phone-cta {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .phone-number {
+      font-size: 1rem;
+    }
+  }
+</style>

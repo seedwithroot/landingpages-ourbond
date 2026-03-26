@@ -1,0 +1,311 @@
+export default {
+  "individuals": {
+    "tagline": "Personal Security for All",
+    "mission": "We believe every life should be lived fully, confidently and without fear.",
+    "description": "Personal security for everyone in every situation. Whether you're uneasy or in danger, Bond is only a tap away. Our technology, services and Personal Security Agents are available 24/7.",
+    
+    "services": [
+      {
+        "name": "24/7 Security Agents",
+        "description": "Bond Personal Security Agents are specially trained to support you in a wide variety of security situations",
+        "icon": "user-check",
+        "category": "PREVENTATIVE",
+        "howItWorks": "Bond operates through a Command Center staffed with trained Personal Security Agents available 24/7. We're here to help you and your loved ones with any security need. Whether you want us to accompany you walking the dog, coordinate roadside assistance, connect you to a Dr., or set up a virtual check-in on you or loved ones at a time and frequency you designate, there's no security need too small.",
+        "features": [
+          "Via Video, Audio, and Text",
+          "Trained and Certified",
+          "Coordinate First Responders",
+          "Available for any security need"
+        ]
+      },
+      {
+        "name": "Track Me On The Go",
+        "description": "Bond monitors your journey and confirms your safety upon arrival. Connect with an Agent at any time.",
+        "icon": "map-pin",
+        "category": "PREVENTATIVE",
+        "howItWorks": "Walking home alone at night. Taking public transportation in an unfamiliar area. You're okay, but the situation makes you uneasy. Bond will monitor your location until we confirm you've safely arrived at your destination. If you don't arrive within the ETA, or happen to deviate from your route, we'll check in with you and, if need be, escalate the situation to your emergency contact. If you seem unsafe, we'll even coordinate with first responders until they get to you, critical if you're in a high-alert scenario unable to speak to 911 yourself. Bond will send authorities key information like your photo and GPS coordinates so they can potentially reach you faster.",
+        "features": [
+          "We monitor your journey",
+          "We confirm your safety upon arrival",
+          "Connect with an Agent at any time",
+          "Auto-escalation if you don't arrive on time",
+          "Sends photo and GPS to first responders"
+        ]
+      },
+      {
+        "name": "Ready An Agent",
+        "description": "Press and hold anywhere on your screen to put a Security Agent on standby. Use when uncomfortable but don't want to speak yet.",
+        "icon": "shield",
+        "category": "PREVENTATIVE",
+        "howItWorks": "If you think that trouble might arise and you want to put a Security Agent on standby, use our Ready An Agent service. Just press and hold the Ready An Agent button on your Bond app. Back at the Command Center, a Personal Security Agent will be on alert. When you release the button, you'll be connected with an Agent who can assist you. If you don't respond, we'll coordinate with the authorities.",
+        "features": [
+          "Press and hold anywhere on your screen",
+          "Use in situations when you're uncomfortable but don't want to speak to an agent yet",
+          "Conceal your phone to avoid drawing attention",
+          "Agent on standby at Command Center"
+        ]
+      },
+      {
+        "name": "Video Monitor Me",
+        "description": "A Personal Security Agent will quickly be by your side via live video, monitoring you and your surroundings",
+        "icon": "video",
+        "category": "PREVENTATIVE",
+        "howItWorks": "When you tap Video Monitor Me, a Personal Security Agent will quickly be by your side via live video. They'll know to immediately begin monitoring you and your surroundings. Keep the Agent with you until you feel safe again. If the situation escalates, our Agent will advise you or coordinate with the authorities if necessary.",
+        "features": [
+          "Live video monitoring",
+          "Personal Security Agent to virtually accompany you",
+          "Immediate assessment of your situation and surroundings",
+          "Agent stays with you until safe"
+        ]
+      },
+      {
+        "name": "Send Me A Car",
+        "description": "Bond dispatches a nearby car to take you to a safer location. No ridesharing account required. Works even if you're on the move.",
+        "icon": "truck",
+        "category": "PREVENTATIVE",
+        "howItWorks": "Everyday situations can sometimes become scary. Maybe you are walking to your car in a dark parking lot or from the office at night. When this happens, sometimes it's best to leave as quickly as possible. With the tap of a button, Bond Personal Security Agents will be with you via video to find a nearby place for you to go and direct a rideshare car to pick you up. No fumbling between apps, no rideshare account required. We'll even help the driver find you if you're on the move.",
+        "features": [
+          "We dispatch a nearby car to take you to a safer location",
+          "No ridesharing account required",
+          "Works even if you're on the move",
+          "Agent helps driver find you",
+          "No switching between apps"
+        ],
+        "note": "Extra costs apply"
+      },
+      {
+        "name": "Siren",
+        "description": "Turn your phone into a siren. Bright flashing lights and loud noise alert others nearby and discourage unwanted company.",
+        "icon": "volume-2",
+        "category": "URGENT",
+        "howItWorks": "If you're uncomfortable and want to draw attention to yourself, simply hold for 3 seconds to activate Siren. The bright flashing lights and loud noise will alert others nearby and work to discourage unwanted company. With Bond Premium, we'll automatically connect you with an Agent when the countdown timer finishes. If necessary, we'll coordinate with the authorities on your behalf. You can also connect with a Personal Security Agent or cancel Siren at any time.",
+        "features": [
+          "Your personal alarm",
+          "Lights and sound will alert bystanders",
+          "With Bond Premium, we coordinate with the authorities if necessary",
+          "3-second activation",
+          "Can cancel at any time"
+        ]
+      },
+      {
+        "name": "Dial 911",
+        "description": "Fast dial 911 with immediate connection to emergency services",
+        "icon": "phone-call",
+        "category": "URGENT",
+        "features": [
+          "One-touch emergency call",
+          "Location data automatically shared",
+          "Quick access in urgent situations"
+        ]
+      },
+      {
+        "name": "Location Services",
+        "description": "Keep track of your loved ones with real-time location mapping and arrival/departure notifications",
+        "icon": "map",
+        "category": "INFORMATIVE",
+        "howItWorks": "It's normal to feel nervous when someone you love is running unusually late or fails to check-in. In moments like these, Location Services can give you peace of mind. Bond can keep you better connected to family and friends, and share everyone's real-time whereabouts on an interactive map. You can see where people are and in which direction they're moving. You'll even receive app notifications when your family and friends arrive or leave their destination.",
+        "features": [
+          "Keep track of your loved ones",
+          "Real-time location mapping",
+          "Arrival/Departure notification",
+          "Unlimited Friends + Family",
+          "Alerts If Permissions Change",
+          "Custom Places",
+          "Unlimited Real-Time Alerts"
+        ]
+      },
+      {
+        "name": "Road Assistance",
+        "description": "Roadside assistance service available through Bond for stranded situations",
+        "icon": "tool",
+        "category": "SUPPORT",
+        "features": [
+          "Help when stranded",
+          "Vehicle trouble support",
+          "Coordinated through Bond agents"
+        ],
+        "note": "Extra costs apply"
+      },
+      {
+        "name": "Telemedicine",
+        "description": "Connect with medical professionals remotely for health concerns",
+        "icon": "heart",
+        "category": "SUPPORT",
+        "features": [
+          "Remote doctor consultation",
+          "Medical advice on-demand",
+          "Health concern support"
+        ],
+        "note": "Extra costs apply"
+      },
+      {
+        "name": "Security Check",
+        "description": "Schedule virtual check-ins at times and frequencies you designate for you or loved ones",
+        "icon": "check-circle",
+        "category": "PREVENTATIVE",
+        "features": [
+          "Scheduled security checks",
+          "Virtual check-ins on demand",
+          "Customizable frequency",
+          "For you or loved ones"
+        ]
+      },
+      {
+        "name": "Body Guard",
+        "description": "Schedule professional bodyguard services on-demand through the app. Former FBI and Homeland Security agents available.",
+        "icon": "user-shield",
+        "category": "PREMIUM",
+        "features": [
+          "Physical Bodyguards on-demand",
+          "Former law enforcement professionals",
+          "Schedule through the app",
+          "Surprisingly affordable",
+          "For events or daily activities"
+        ],
+        "note": "Extra costs apply"
+      }
+    ],
+    
+    "useCases": [
+      "Walking alone at night after work or social events",
+      "Business travel in unfamiliar cities",
+      "Late night commutes on public transportation",
+      "Running or exercising in isolated areas",
+      "Real estate agents meeting strangers at properties",
+      "Rideshare and taxi rides",
+      "First dates or meeting new people",
+      "Working late shifts"
+    ],
+    
+    "benefits": [
+      "Carry the power of your own Personal Security Agent in your pocket",
+      "Never feel alone or vulnerable in uncertain situations",
+      "Professional security that travels with you wherever you go",
+      "Affordable monthly subscription instead of expensive bodyguard services",
+      "Instant access to help without the stigma of calling 911",
+      "Peace of mind for solo travelers and late-night workers"
+    ]
+  },
+  
+  "families": {
+    "tagline": "Security and Peace of Mind for Your Whole Family",
+    "mission": "We believe families should live freely, knowing everyone they love is protected.",
+    "description": "Bond reimagines family safety with professional security services for everyone in your household. From teenagers to elderly parents, keep your whole family protected with one comprehensive solution.",
+    
+    "services": [
+      {
+        "name": "Family Location Services",
+        "description": "Monitor the real-time location of all family members from a single dashboard",
+        "icon": "users"
+      },
+      {
+        "name": "24/7 Security Agents",
+        "description": "Professional security agents available to any family member, anytime",
+        "icon": "user-check"
+      },
+      {
+        "name": "Track Family Members",
+        "description": "Know when loved ones arrive home safely or need assistance during travel",
+        "icon": "map-pin"
+      },
+      {
+        "name": "Teen Safety Monitoring",
+        "description": "Give teens independence while maintaining parental peace of mind",
+        "icon": "smartphone"
+      },
+      {
+        "name": "Elderly Parent Care",
+        "description": "Monitor aging parents with respect for their independence",
+        "icon": "heart"
+      },
+      {
+        "name": "College Student Protection",
+        "description": "Keep students safe on and off campus with 24/7 monitoring",
+        "icon": "book"
+      },
+      {
+        "name": "Emergency Response for All",
+        "description": "Entire family covered under one plan with shared emergency services",
+        "icon": "phone-call"
+      },
+      {
+        "name": "Body Guard Services",
+        "description": "Professional protection for family events during uncertain times",
+        "icon": "user-shield"
+      },
+      {
+        "name": "Family Check-Ins",
+        "description": "Automated safety checks and status updates for all family members",
+        "icon": "check-circle"
+      },
+      {
+        "name": "Multi-Device Support",
+        "description": "Connect unlimited family members under one family plan",
+        "icon": "tablet"
+      }
+    ],
+    
+    "useCases": [
+      "Teenagers going out with friends or to school",
+      "College students living away from home",
+      "Elderly parents who live alone or have health concerns",
+      "Family members who work late or irregular hours",
+      "Children walking to school or activities",
+      "Spouse traveling for work",
+      "Family events during civil unrest or protests",
+      "Vacation travel with the whole family"
+    ],
+    
+    "benefits": [
+      "One subscription protects your entire family",
+      "Parent dashboard to monitor all family members",
+      "Give children independence without sacrificing safety",
+      "Peace of mind knowing everyone is protected 24/7",
+      "Professional security service formerly available only to executives",
+      "Affordable alternative to hiring individual bodyguards",
+      "Emergency coordination for any family member in need"
+    ],
+    
+    "testimonials": {
+      "family_focus": [
+        {
+          "quote": "Until now we had no easy and affordable resource to turn to in order to provide safety and security for me and my family. Our bodyguards were former FBI and Homeland Security agents who are highly professional and experienced. They made me and my family feel extremely safe and secure.",
+          "author": "Ken P.",
+          "context": "Used Bond for family event during civil unrest"
+        }
+      ]
+    }
+  },
+  
+  "shared": {
+    "tagline": "The New Frontier In Personal Security",
+    "brand_promise": "Safer with Bond",
+    "headline": "Whatever the need. Whenever it arises. In any situation.",
+    "description": "Bond's suite of Personal Security services are available 24/7, enabled by people and technology you can trust.",
+    "command_center": {
+      "title": "Command Center & Security Agents",
+      "subtitle": "Our Personal Security Agents are here to help you.",
+      "description": "Bond operates through a Command Center staffed with trained Personal Security Agents available 24/7. We're here to help you and your loved ones with any security need. Whether you want us to accompany you walking the dog, coordinate roadside assistance, connect you to a Dr., or set up a virtual check-in on you or loved ones at a time and frequency you designate, there's no security need too small. Our Personal Security Agents and partnerships with top providers give us an unparalleled ability to help keep you and your loved ones feeling safer."
+    },
+    "contact": {
+      "phone": "1-888-567-6234",
+      "email": "membercare@ourbond.com",
+      "headquarters": "85 Broad Street, New York, NY 10004"
+    },
+    "availability": "Available 24/7",
+    "platforms": ["iOS", "Android"],
+    "key_differentiator": "Personal security is no longer just for a select few. It's for all of us.",
+    "endorsements": [
+      {
+        "name": "Raymond Kelly",
+        "title": "Former NYPD Commissioner, Bond Advisor",
+        "quote": "Bond offers a unique and valuable service, enhancing peace-of-mind and personal security for individuals and families. In particular, I see great value in Bond's 24/7 Personal Security Agents and the novel array of preventative services."
+      },
+      {
+        "name": "Bill Craig",
+        "title": "Former Chief of Police, Bond Advisor",
+        "quote": "Bond services, particularly the preventative services, are aimed at helping reduce crime as well as increasing personal safety. Their trained Personal Security Agents are available 24/7 to help provide support."
+      }
+    ]
+  }
+};

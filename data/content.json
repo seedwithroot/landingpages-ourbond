@@ -1,0 +1,168 @@
+{
+  "headlines": {
+    "families": {
+      "peace": [
+        "Stay Connected to the Ones You Love",
+        "Give Your Family the Gift of Safety",
+        "Peace of Mind for Your Whole Family",
+        "Protect What Matters Most"
+      ],
+      "fear": [
+        "Don't Wait Until It's Too Late to Protect Your Family",
+        "Every Parent's Worst Nightmare Can Be Prevented",
+        "Is Your Family Really Safe? The Statistics Say No",
+        "Time is Running Out - Protect Your Loved Ones Now"
+      ]
+    },
+    "individuals": {
+      "peace": [
+        "Find the Peace of Mind You Deserve",
+        "Never Walk Alone Again",
+        "Safety at Your Fingertips, Anytime",
+        "Take Control of Your Personal Safety"
+      ],
+      "fear": [
+        "Don't Wait Until It's Too Late",
+        "You're Not As Safe As You Think",
+        "Every Day Without Protection is a Risk",
+        "Stop Putting Yourself in Danger"
+      ]
+    }
+  },
+  "subheadlines": {
+    "families": {
+      "peace": [
+        "Bringing families closer together through meaningful connection and 24/7 safety monitoring",
+        "Simple, secure protection designed with your family's peace of mind in mind",
+        "One app that keeps everyone you love safe, anytime, anywhere"
+      ],
+      "fear": [
+        "Every moment you wait puts your family at risk. Protect them before circumstances force your hand",
+        "The dangers are real and growing. Take action now while you still can",
+        "Don't let your family become another statistic. Act now"
+      ]
+    },
+    "individuals": {
+      "peace": [
+        "Take control with simple, trusted solutions designed for your unique needs. You don't have to figure this out alone",
+        "24/7 protection that fits seamlessly into your life. Simple, secure, always there",
+        "Join thousands who have found the peace of mind they were looking for"
+      ],
+      "fear": [
+        "Every day without protection puts you at risk. Take action now to secure your future before circumstances force your hand",
+        "The statistics don't lie - and you're not immune. Protect yourself now",
+        "Going without protection leaves you vulnerable. Don't wait to find out the hard way"
+      ]
+    }
+  },
+  "ctas": {
+    "primary": [
+      "Download App",
+      "Get Protected Now",
+      "Start Your Free Trial",
+      "Get Started Today"
+    ],
+    "secondary": [
+      "Learn More",
+      "See How It Works",
+      "View Plans",
+      "Contact Us"
+    ],
+    "urgent": [
+      "Protect Yourself Now",
+      "Take Action Immediately",
+      "Don't Wait - Act Now",
+      "Get Protected Today"
+    ]
+  },
+  "trustLines": {
+    "peace": [
+      "✓ Trusted by Families ✓ Easy to Use ✓ Secure & Private",
+      "✓ 24/7 Protection ✓ Instant Response ✓ Proven Results",
+      "✓ Trusted Protection ✓ Simple Process ✓ Personal Support"
+    ],
+    "fear": [
+      "⚠️ Urgent ⚠️ Time Sensitive ⚠️ Act Now",
+      "⚠️ Don't Delay ⚠️ Protection Required ⚠️ Limited Time",
+      "⚠️ Risk Alert ⚠️ Act Now ⚠️ Every Second Counts"
+    ]
+  },
+  "valueProps": {
+    "families": [
+      "Keep your entire family safe with one simple app",
+      "Monitor teenagers, elderly parents, and everyone in between",
+      "Peace of mind for parents, freedom for kids",
+      "24/7 professional monitoring for your whole family"
+    ],
+    "individuals": [
+      "Personal safety agent at the touch of a button",
+      "Never walk alone - ever again",
+      "Professional protection without the bodyguard price tag",
+      "Live monitoring by trained safety professionals"
+    ]
+  },
+  "statistics": [
+    {
+      "stat": "2.2M",
+      "label": "People use safety apps daily",
+      "source": "Safety Tech Report 2025"
+    },
+    {
+      "stat": "87%",
+      "label": "Feel safer with monitored protection",
+      "source": "User Safety Survey"
+    },
+    {
+      "stat": "<30 sec",
+      "label": "Average connection time to agent",
+      "source": "Internal Metrics"
+    },
+    {
+      "stat": "24/7/365",
+      "label": "Always-on protection",
+      "source": "Service Availability"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How does Bond work?",
+      "answer": "Bond connects you instantly to trained safety agents who can monitor your location, hear your surroundings, and coordinate emergency response if needed. Simply activate the app when you need protection.",
+      "segment": "both"
+    },
+    {
+      "question": "What happens when I activate Bond?",
+      "answer": "Within seconds, a trained safety agent is connected to you. They can see your location, hear what's happening around you, and stay with you until you're safe. If needed, they'll coordinate with local emergency services.",
+      "segment": "both"
+    },
+    {
+      "question": "Can my family members track each other?",
+      "answer": "Yes! Our Family Circle feature allows family members to share locations and safety status with each other. Parents can monitor teens, adult children can check on elderly parents, and everyone has peace of mind.",
+      "segment": "families"
+    },
+    {
+      "question": "How much does it cost?",
+      "answer": "We offer flexible pricing plans starting at $9.99/month for individuals and family plans starting at $19.99/month. All plans include 24/7 agent access and unlimited usage.",
+      "segment": "both"
+    },
+    {
+      "question": "Is my information private and secure?",
+      "answer": "Absolutely. We use bank-level encryption for all data. Your location and information are only shared with safety agents when you actively request help, and we never sell your data to third parties.",
+      "segment": "both"
+    },
+    {
+      "question": "What if I accidentally activate it?",
+      "answer": "No problem! You can easily cancel a session. The agent will quickly verify it was accidental and close the session. There's no penalty for accidental activations.",
+      "segment": "both"
+    },
+    {
+      "question": "Does it work everywhere?",
+      "answer": "Bond works anywhere you have cellular or WiFi service. Our agents can coordinate emergency response in any location within the United States.",
+      "segment": "both"
+    },
+    {
+      "question": "Can I use it for my elderly parents?",
+      "answer": "Yes! Many families use Bond to protect elderly parents. The simple one-button interface works great for seniors, and family members can receive alerts and monitor safety status.",
+      "segment": "families"
+    }
+  ]
+}

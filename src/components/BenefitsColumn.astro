@@ -1,0 +1,141 @@
+---
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  benefits: Benefit[];
+  alignment?: 'left' | 'center';
+}
+
+const { benefits, alignment = 'left' } = Astro.props;
+
+// Simple icon mapping (you can replace with actual icon components)
+const iconMap: Record<string, string> = {
+  'zap': '⚡',
+  'shield': '🛡️',
+  'users': '👥',
+  'clock': '⏱️',
+  'check': '✓',
+  'star': '⭐',
+  'chart': '📊',
+  'sync': '🔄',
+  'lock': '🔒',
+  'rocket': '🚀'
+};
+---
+
+<section class={`benefits-section benefits-${alignment}`}>
+  <div class="container">
+    <div class="benefits-list">
+      {benefits.map((benefit) => (
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <h3 class="benefit-title">{benefit.title}</h3>
+            <p class="benefit-description">{benefit.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-section {
+    padding: 6rem 0;
+    background: transparent;
+    border-top: none;
+  }
+  
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .benefits-left .benefits-list {
+    max-width: 800px;
+  }
+  
+  .benefits-center .benefits-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .benefit-item {
+    padding: 2.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    transition: background 0.25s;
+    position: relative;
+  }
+  
+  .benefit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: width 0.35s ease;
+  }
+  
+  .benefit-item:hover {
+    background: var(--panel);
+  }
+  
+  .benefit-item:hover::before {
+    width: 100%;
+  }
+  
+  .benefit-content {
+    width: 100%;
+  }
+  
+  .benefit-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  .benefit-description {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  
+  @media (max-width: 768px) {
+    .benefits-section {
+      padding: 3rem 0;
+    }
+    
+    .benefits-list {
+      gap: 2rem;
+    }
+    
+    .benefit-item {
+      padding: 2rem;
+    }
+    
+    .benefit-item:hover {
+      transform: none;
+    }
+    
+    .benefit-title {
+      font-size: 1.25rem;
+    }
+    
+    .benefit-description {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+}
+
+const { features, columns = 3 } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  'zap': '⚡',
+  'shield': '🛡️',
+  'users': '👥',
+  'clock': '⏱️',
+  'check': '✓',
+  'star': '⭐',
+  'chart': '📊',
+  'sync': '🔄',
+  'lock': '🔒',
+  'rocket': '🚀',
+  'dollar': '💰',
+  'support': '💬'
+};
+---
+
+<section class="features-grid-section">
+  <div class="container">
+    <div class={`features-grid features-grid-${columns}`}>
+      {features.map((feature) => (
+        <div class="feature-card">
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-grid-section {
+    padding: 6rem 0;
+    background: transparent;
+    border-top: none;
+  }
+  
+  .features-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 640px) {
+    .features-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .features-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .features-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .features-grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .feature-card {
+    background: var(--near-black);
+    padding: 2.5rem;
+    border-radius: 0;
+    text-align: left;
+    position: relative;
+    transition: background 0.25s;
+  }
+  
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: width 0.35s ease;
+  }
+  
+  .feature-card:hover {
+    background: var(--panel);
+  }
+  
+  .feature-card:hover::before {
+    width: 100%;
+  }
+  
+  .feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      gap: 1px;
+    }
+    
+    .feature-card {
+      padding: 2rem;
+    }
+  }
+</style>

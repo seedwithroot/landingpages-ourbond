@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CheckmarkList from '../components/CheckmarkList.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import BenefitsColumn from '../components/BenefitsColumn.astro';
+import CTA from '../components/CTA.astro';
+import ReviewBlock from '../components/ReviewBlock.astro';
+import ServicesShowcase from '../components/ServicesShowcase.astro';
+import reviewsData from '../data/reviews.js';
+import tracksData from '../data/tracks.js';
+
+const familyReviews = reviewsData.reviews.filter(r => r.segment === 'families' || r.persona === 'parent');
+
+// Get family-focused services from tracks
+const familyServices = tracksData.families.services.slice(0, 5); // Show first 5 services
+
+// LIGHT THEME - Peace of mind messaging for families
+const benefits = [
+  "Give your family the gift of connection",
+  "Create lasting memories together",
+  "Peace of mind for everyone involved"
+];
+
+const features = [
+  {
+    "icon": "heart",
+    "title": "Stay Connected",
+    "description": "[PLACEHOLDER] Bring your family closer together with tools designed for meaningful connection and communication."
+  },
+  {
+    "icon": "smile",
+    "title": "Simple & Easy",
+    "description": "[PLACEHOLDER] User-friendly solutions that make staying in touch effortless for the entire family."
+  },
+  {
+    "icon": "users",
+    "title": "Whole Family Support",
+    "description": "[PLACEHOLDER] Designed with every family member in mind, from children to grandparents."
+  }
+];
+
+const detailedBenefits = [
+  {
+    "icon": "heart",
+    "title": "Strengthen Family Bonds",
+    "desc": "[PLACEHOLDER] Build deeper connections with the people who matter most. Tools designed for meaningful interaction."
+  },
+  {
+    "icon": "check-circle",
+    "title": "Easy to Use",
+    "desc": "[PLACEHOLDER] No technical expertise required. Simple, intuitive features that work for everyone."
+  },
+  {
+    "icon": "shield",
+    "title": "Trusted & Secure",
+    "desc": "[PLACEHOLDER] Your family's privacy and security are our top priorities. Reliable service you can count on."
+  }
+];
+---
+
+<Layout 
+  title="[PLACEHOLDER] Family Connection Services - Stay Close to What Matters"
+  description="[PLACEHOLDER] Bring your family closer together with tools designed for meaningful connection and peace of mind."
+>
+  <Hero 
+    headline="[PLACEHOLDER] Stay Connected to the Ones You Love"
+    subheadline="[PLACEHOLDER] Bringing families closer together through meaningful connection. Simple, secure, and designed with your family's peace of mind in mind."
+    ctaText="Download App"
+    ctaUrl="#"
+    showForm={false}
+    heroImage="https://www.ourbond.com/wp-content/uploads/slider118/psc_content_image.png"
+    trustLine="✓ Trusted by Families ✓ Easy to Use ✓ Secure & Private"
+    pattern="f-shaped"
+  />
+  
+  <section style="padding: 2rem 0; background: white; border-bottom: 1px solid #e8ecef;">
+    <div class="container">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <a href="#" class="cta-large">Start Connecting Today</a>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9375rem;">
+        [PLACEHOLDER] Join thousands of families staying connected
+      </p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0; background: #f8f9fa;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+        [PLACEHOLDER] Why Families Choose Us
+      </h2>
+      <p style="font-size: 1.125rem; color: #555; margin-bottom: 3rem; max-width: 800px;">
+        [PLACEHOLDER] We understand the importance of family connection. Our platform is designed to make staying in touch simple, meaningful, and enjoyable for everyone.
+      </p>
+      
+      <div style="max-width: 800px;">
+        <CheckmarkList items={benefits} columns={1} size="large" />
+      </div>
+    </div>
+  </section>
+
+  <ServicesShowcase 
+    services={familyServices}
+    theme="light"
+  />
+
+  <section style="padding: 4rem 0; background: white;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+        [PLACEHOLDER] How We Help Families
+      </h2>
+      <FeaturesGrid features={features} columns={3} />
+    </div>
+  </section>
+
+  <BenefitsColumn benefits={detailedBenefits} alignment="left" />
+
+  <ReviewBlock 
+    reviews={familyReviews}
+    theme="light"
+    title="Trusted by Families Everywhere"
+    subtitle="See how Bond is bringing peace of mind to families like yours"
+    maxReviews={3}
+  />
+
+  <CTA 
+    headline="[PLACEHOLDER] Ready to Bring Your Family Closer?"
+    subtext="[PLACEHOLDER] Start creating meaningful connections today. Simple, secure, and designed for your family."
+    ctaText="Get Started Today"
+    ctaUrl="#"
+    variant="banner"
+  />
+</Layout>

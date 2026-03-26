@@ -1,0 +1,187 @@
+---
+interface Props {
+  location?: string;
+  variant?: 'compact' | 'full';
+}
+
+const { location = "", variant = 'compact' } = Astro.props;
+---
+
+<div class="quote-form-container">
+  <div class="form-header">
+    <h3 class="form-title">Get Your Free Quote</h3>
+    <p class="form-subtitle">Fill out the form and we'll get back to you within 24 hours</p>
+  </div>
+  
+  <form class="quote-form" id="quote-form" method="POST" action="/api/quote">
+    <div class="form-row">
+      <input 
+        type="text" 
+        name="name" 
+        placeholder="Your Name *" 
+        required 
+        class="form-input"
+      />
+    </div>
+    
+    <div class="form-row">
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email Address *" 
+        required 
+        class="form-input"
+      />
+    </div>
+    
+    <div class="form-row">
+      <input 
+        type="tel" 
+        name="phone" 
+        placeholder="Phone Number *" 
+        required 
+        class="form-input"
+      />
+    </div>
+    
+    <div class="form-row">
+      <input 
+        type="text" 
+        name="company" 
+        placeholder="Company Name" 
+        class="form-input"
+      />
+    </div>
+    
+    {location && (
+      <input type="hidden" name="location" value={location} />
+    )}
+    
+    <div class="form-row">
+      <textarea 
+        name="message" 
+        placeholder="Tell us about your fuel delivery needs..." 
+        rows="3" 
+        class="form-input form-textarea"
+      ></textarea>
+    </div>
+    
+    <button type="submit" class="form-submit cta-primary">
+      Get Free Quote
+    </button>
+    
+    <p class="form-disclaimer">
+      By submitting this form, you agree to receive communications from SiteFuel. 
+      We respect your privacy.
+    </p>
+  </form>
+</div>
+
+<style>
+  /* Quote Form Container */
+  .quote-form-container {
+    background: var(--white);
+    border: 2px solid var(--border);
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Form Header */
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .form-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--text);
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  
+  .form-subtitle {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  /* Quote Form */
+  .quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Form Row */
+  .form-row {
+    width: 100%;
+  }
+  
+  /* Form Inputs */
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--border);
+    background: var(--white);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(187, 25, 24, 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: var(--muted);
+  }
+  
+  /* Textarea */
+  .form-textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: var(--font-sans);
+  }
+  
+  /* Submit Button */
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .form-submit:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Disclaimer */
+  .form-disclaimer {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+    margin: 0.5rem 0 0 0;
+  }
+  
+  /* Mobile Adjustments */
+  @media (max-width: 967px) {
+    .quote-form-container {
+      padding: 1.5rem;
+    }
+    
+    .form-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CheckmarkList from '../components/CheckmarkList.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import BenefitsColumn from '../components/BenefitsColumn.astro';
+import CTA from '../components/CTA.astro';
+import ReviewBlock from '../components/ReviewBlock.astro';
+import ServicesShowcase from '../components/ServicesShowcase.astro';
+import reviewsData from '../data/reviews.js';
+import tracksData from '../data/tracks.js';
+
+const familyReviews = reviewsData.reviews.filter(r => r.segment === 'families' || r.persona === 'parent');
+
+// Get urgent and preventative services for fear-based messaging
+const urgentServices = tracksData.individuals.services.filter(s => s.category === 'URGENT' || s.category === 'PREVENTATIVE').slice(0, 4);
+
+// DARK THEME - Fear-based messaging for families
+const benefits = [
+  "Don't face uncertainty alone",
+  "Time-sensitive protection you need now",
+  "Act before it's too late"
+];
+
+const features = [
+  {
+    "icon": "alert-triangle",
+    "title": "Urgent Action Required",
+    "description": "[PLACEHOLDER] Every moment counts when protecting yourself. Don't wait until it's too late to take action."
+  },
+  {
+    "icon": "shield-off",
+    "title": "Unprotected Risk",
+    "description": "[PLACEHOLDER] Going without protection leaves you vulnerable. The risks are real and growing every day."
+  },
+  {
+    "icon": "clock",
+    "title": "Time is Running Out",
+    "description": "[PLACEHOLDER] The longer you wait, the more exposed you become. Act now while you still can."
+  }
+];
+
+const detailedBenefits = [
+  {
+    "icon": "alert-circle",
+    "title": "Critical Protection Gaps",
+    "desc": "[PLACEHOLDER] You might be exposed to risks you don't even know about. Don't wait to find out the hard way."
+  },
+  {
+    "icon": "clock",
+    "title": "Time-Sensitive Solution",
+    "desc": "[PLACEHOLDER] Every day without protection is a day of unnecessary risk. Your situation demands immediate action."
+  },
+  {
+    "icon": "lock",
+    "title": "Secure Your Future Now",
+    "desc": "[PLACEHOLDER] Take control before circumstances force your hand. Protection is always cheaper than recovery."
+  }
+];
+---
+
+<Layout 
+  title="[PLACEHOLDER] Individual Protection Services - Act Now"
+  description="[PLACEHOLDER] Don't wait until it's too late. Protect yourself today with solutions designed for your security."
+>
+  <Hero 
+    headline="[PLACEHOLDER] Don't Wait Until It's Too Late"
+    subheadline="[PLACEHOLDER] Every day without protection puts you at risk. Take action now to secure your future before circumstances force your hand."
+    ctaText="Get Protected Now"
+    ctaUrl="#"
+    showForm={false}
+    heroImage="https://www.ourbond.com/wp-content/uploads/slider118/psc_content_image.png"
+    trustLine="⚠️ Urgent ⚠️ Time Sensitive ⚠️ Act Now"
+    pattern="f-shaped"
+  />
+  
+  <section style="padding: 2rem 0; background: #1a1a1a; border-bottom: 1px solid #333;">
+    <div class="container">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <a href="#" style="display: inline-block; background: #dc3545; color: white; padding: 1.25rem 3rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 1.125rem; transition: background-color 0.3s; text-align: center;">
+          Take Action Immediately
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; color: #999; font-size: 0.9375rem;">
+        [PLACEHOLDER] Don't be another statistic - act now
+      </p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0; background: #0a0a0a; color: #f5f5f5;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #f5f5f5;">
+        [PLACEHOLDER] The Cost of Waiting
+      </h2>
+      <p style="font-size: 1.125rem; color: #ccc; margin-bottom: 3rem; max-width: 800px;">
+        [PLACEHOLDER] Every moment you delay increases your exposure. The risks are real, and they're not going away on their own. Take control before it's too late.
+      </p>
+      
+      <div style="max-width: 800px;">
+        <CheckmarkList items={benefits} columns={1} size="large" />
+      </div>
+    </div>
+  </section>
+
+  <ServicesShowcase 
+    services={urgentServices}
+    theme="dark"
+  />
+
+  <section style="padding: 4rem 0; background: #1a1a1a; color: #f5f5f5;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; text-align: center; color: #f5f5f5;">
+        [PLACEHOLDER] Why You Can't Afford to Wait
+      </h2>
+      <FeaturesGrid features={features} columns={3} />
+    </div>
+  </section>
+
+  <BenefitsColumn benefits={detailedBenefits} alignment="left" />
+
+  <ReviewBlock 
+    reviews={familyReviews}
+    theme="dark"
+    title="Real Stories of What Could Have Been"
+    subtitle="These people acted in time. Will you?"
+    maxReviews={3}
+  />
+
+  <CTA 
+    headline="[PLACEHOLDER] Stop Putting Yourself at Risk"
+    subtext="[PLACEHOLDER] Every day you wait is another day of unnecessary exposure. Take action now to protect your future."
+    ctaText="Protect Yourself Now"
+    ctaUrl="#"
+    variant="banner"
+  />
+</Layout>
+
+<style>
+  /* Dark theme overrides for this page */
+  :global(:root) {
+    --text: #ffffff;
+    --muted: #cccccc;
+    --near-black: #0a0a0a;
+    --white: #0a0a0a;
+    --panel: #1a1a1a;
+    --border: #333333;
+    --color-text: #ffffff;
+    --color-text-light: #cccccc;
+    --color-background: #0a0a0a;
+  }
+  
+  :global(body) {
+    background: #0a0a0a;
+    color: #f5f5f5;
+  }
+  
+  :global(section) {
+    background: #0a0a0a !important;
+  }
+  
+  :global(.container h2, .container h3) {
+    color: #f5f5f5 !important;
+  }
+  
+  :global(.container p) {
+    color: #ccc !important;
+  }
+</style>

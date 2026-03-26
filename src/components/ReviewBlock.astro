@@ -1,0 +1,201 @@
+---
+interface Review {
+  id: number;
+  author: string;
+  rating: number;
+  text: string;
+  persona?: string;
+  useCase?: string;
+  segment?: string;
+  featured?: boolean;
+}
+
+interface Props {
+  reviews: Review[];
+  theme?: 'light' | 'dark';
+  title?: string;
+  subtitle?: string;
+  maxReviews?: number;
+}
+
+const { 
+  reviews, 
+  theme = 'light',
+  title = "What Our Users Say",
+  subtitle = "Real people, real safety, real peace of mind",
+  maxReviews = 3
+} = Astro.props;
+
+const displayReviews = reviews.slice(0, maxReviews);
+---
+
+<section class={`reviews-section reviews-${theme}`}>
+  <div class="container">
+    <div class="reviews-header">
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+    <div class="reviews-grid">
+      {displayReviews.map((review) => (
+        <div class="review-card">
+          <div class="review-stars">
+            {'⭐'.repeat(review.rating)}
+          </div>
+          <blockquote class="review-text">
+            "{review.text}"
+          </blockquote>
+          <div class="review-author">
+            {review.author}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border, #e8ecef);
+  }
+  
+  /* Light theme (default) */
+  .reviews-light {
+    background: #f8f9fa;
+    color: #212529;
+  }
+  
+  /* Dark theme */
+  .reviews-dark {
+    background: #0a0a0a;
+    color: #f5f5f5;
+    border-top-color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .reviews-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .reviews-light .reviews-header h2 {
+    color: #212529;
+  }
+  
+  .reviews-dark .reviews-header h2 {
+    color: #f5f5f5;
+  }
+  
+  .reviews-header p {
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+  
+  .reviews-light .reviews-header p {
+    color: #6c757d;
+  }
+  
+  .reviews-dark .reviews-header p {
+    color: #999;
+  }
+  
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .reviews-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .reviews-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .review-card {
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .reviews-light .review-card {
+    background: white;
+    border: 1px solid #e8ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .reviews-dark .review-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .review-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .reviews-light .review-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reviews-dark .review-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .review-stars {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+  
+  .review-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+  }
+  
+  .reviews-light .review-text {
+    color: #495057;
+  }
+  
+  .reviews-dark .review-text {
+    color: #ccc;
+  }
+  
+  .review-author {
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    border-top: 1px solid;
+  }
+  
+  .reviews-light .review-author {
+    color: #2563eb;
+    border-top-color: #e8ecef;
+  }
+  
+  .reviews-dark .review-author {
+    color: #4a9eff;
+    border-top-color: #333;
+  }
+</style>

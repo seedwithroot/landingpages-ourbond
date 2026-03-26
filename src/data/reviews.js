@@ -1,0 +1,123 @@
+export default {
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Joanna Lewiston",
+      "rating": 5,
+      "text": "As a woman in the corporate world, I often find myself traveling alone in cities to meet customers, partners and manufacturers. Not always knowing these cities, I don't always know where I'm safe. And even in my home city, I can find myself out very late at night with friends and when its time to go home I still have to walk alone to my car, Uber, or back to my house. In the dark. Typically in heels. Having Bond makes me feel more secure in these situations, as I know that someone knows where I am and can get me help immediately if I need it. Thank you Bond!",
+      "persona": "business-traveler",
+      "useCase": "traveling-alone",
+      "segment": "families"
+    },
+    {
+      "id": 2,
+      "author": "Jess Burke",
+      "rating": 5,
+      "text": "LIFE SAVER! As a young female in Manhattan, often working late nights, I was once violently attacked on the street walking home and have since then tried to be more cautious; faking phone conversations when I'm feeling uncomfortable or taking a car (which adds up $$$) The \"Track Me On The Go\" feature has been a lifesaver! Not only to my sense of well-being being but also to my wallet😉 Fortunately, I haven't had to use any of the more aggressive features yet but it's definitely worth every penny",
+      "persona": "urban-professional",
+      "useCase": "late-night-commute",
+      "segment": "individuals",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "author": "Dane Chapman",
+      "rating": 5,
+      "text": "This is definitely the most impressive app i have ever used. Starting with the membercare: A+. As a female in and out of the city working late nights, it can be difficult to find something to make you feel safe. This app has completely changed my outlook on walking alone and being on public transportation late at night. Knowing i can keep my phone in hand- have someone in contact with me, knowing my location (accurately) and hearing my surroundings, lets you know you are in safe hands. I take my safety seriously and knowing that i have Elizabeth there at a touch of a button is a saving grace! I absolutely love this app and wouldn't know what to do without it. If you're on the move- no matter who you are. YOU should HAVE THIS APP. I recommended this app to everyone i know. It's definitely a MUST-HAVE.",
+      "persona": "city-commuter",
+      "useCase": "public-transportation",
+      "segment": "individuals",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "author": "Cindy Johnson",
+      "rating": 5,
+      "text": "I often walk home alone late at night, usually after a long day at the office. Most of the time it's fine, but there are def times when I feel nervous and even unsafe. During those times, I've never had a reliable way to ensure my safety. Bond does just that for me. Easy to use - one click and you have some there looking out for you, ready to call for help the second you need it. Highly, highly recommend it for anyone who ever walks alone, anywhere.",
+      "persona": "office-worker",
+      "useCase": "late-night-walk",
+      "segment": "individuals",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "author": "Jessie Glennon",
+      "rating": 5,
+      "text": "Brilliant, thank you! I've been waiting for a service like this to come out, and here it is. As a woman who travels for work, and am often alone in strange places, this app is now my new best friend.",
+      "persona": "business-traveler",
+      "useCase": "traveling-alone",
+      "segment": "individuals"
+    },
+    {
+      "id": 6,
+      "author": "Taylor Estrada",
+      "rating": 5,
+      "text": "My brother introduced me to this app earlier in the week and I was amazed by the services Bond offer. I frequently get off from work late and walking to my car was bit scary, this app provides me a peace of mind walking to my car and allows me an opportunity to walk anywhere without any fear or hesitation. The fact this can connect with agent within few seconds is very fascinating and I have never seen such services. Strongly recommend this app to everyone who cares about their safety.",
+      "persona": "late-shift-worker",
+      "useCase": "parking-lot-safety",
+      "segment": "individuals"
+    },
+    {
+      "id": 7,
+      "author": "Drew Griffiths",
+      "rating": 5,
+      "text": "If you are a real estate agent or a frequent runner or a nurse walking to your car at 3 a.m. you NEED this app! This is the best thing out there to keep you safe and secure. I recommend to all my friends and family and those I truly care about. This app will change your life for the better!",
+      "persona": "professional",
+      "useCase": "high-risk-professions",
+      "segment": "families",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "author": "Chris Newman",
+      "rating": 5,
+      "text": "I often walk home alone late at night, usually after a long day at the office. Most of the time it's fine, but there are def times when I feel nervous and even unsafe. During those times, I've never had a reliable way to ensure my safety. Bond does just that for me. Easy to use - one click and you have some there looking out for you, ready to call for help the second you need it. Highly, highly recommend it for anyone who ever walks alone, anywhere.",
+      "persona": "office-worker",
+      "useCase": "late-night-walk",
+      "segment": "individuals"
+    },
+    {
+      "id": 9,
+      "author": "Eli Curtis",
+      "rating": 5,
+      "text": "Just recently downloaded the app and it makes me feel safe just knowing that I have it to use for my job and whenever I feel unsure of being alone. I can call the app and it really helps me to know that I always have someone there on hand to help me when ever need be",
+      "persona": "worker",
+      "useCase": "job-related-safety",
+      "segment": "individuals"
+    },
+    {
+      "id": 10,
+      "author": "Emerson Sweet",
+      "rating": 5,
+      "text": "This is app is one of a kind! I would recommend it to all of my realtor friends and anyone who has children in college/teenagers!",
+      "persona": "parent",
+      "useCase": "family-safety",
+      "segment": "families",
+      "featured": true
+    },
+    {
+      "id": 11,
+      "author": "River Barker",
+      "rating": 5,
+      "text": "This app is great! It really gives me peace of mind when I'm leaving work at night by myself! Its super simple to use & very convenient! I recommend it to everyone!",
+      "persona": "worker",
+      "useCase": "leaving-work",
+      "segment": "individuals"
+    },
+    {
+      "id": 12,
+      "author": "Jess Cox",
+      "rating": 5,
+      "text": "My daughter send me the link to this app, I'm a nurse and work late a lot so I do feel safer with this app.",
+      "persona": "healthcare-worker",
+      "useCase": "late-shift-worker",
+      "segment": "families",
+      "featured": true
+    }
+  ],
+  "stats": {
+    "total": 12,
+    "averageRating": 5.0,
+    "featured": 6
+  }
+};

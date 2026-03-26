@@ -1,0 +1,64 @@
+Service,Keyword,Match Type,Search Intent,Category,Notes
+Location Services,family location tracking app,Exact,Transactional,Core Feature,High volume; direct use case
+Location Services,real time family location sharing,Phrase,Transactional,Core Feature,
+Location Services,family gps tracker app,Exact,Transactional,Core Feature,Competitor overlap with Life360
+Location Services,see where my family is app,Phrase,Transactional,Problem-Aware,Conversational; good for broad
+Location Services,family location sharing app,Exact,Transactional,Core Feature,
+Location Services,track family members phone,Phrase,Transactional,Core Feature,
+Location Services,find my family app,Exact,Navigational/Transactional,Core Feature,Competitive against Apple Find My
+Location Services,family safety app,Broad Match Modified,Transactional,Core Feature,Wide reach; monitor spend
+Location Services,arrival alert app family,Phrase,Transactional,Core Feature,Lower volume; high intent
+Location Services,life360 alternative,Exact,Transactional,Competitor,Strong intent to switch
+Location Services,life360 vs,Broad,Informational,Competitor,Comparison searchers
+Location Services,family tracking app free,Phrase,Transactional,Pricing,Intent to start free
+Track Me On The Go,walk home safe app,Exact,Transactional,Core Feature,High-intent; own this term
+Track Me On The Go,app to track me walking home,Phrase,Transactional,Core Feature,Conversational query
+Track Me On The Go,safety app walking alone at night,Phrase,Problem-Aware,Emotional/Situational,
+Track Me On The Go,personal safety app for women,Exact,Transactional,Audience,Strong demographic signal
+Track Me On The Go,safe walk home app,Exact,Transactional,Core Feature,
+Track Me On The Go,someone to watch me walk home,Phrase,Problem-Aware,Emotional/Situational,High emotional intent
+Track Me On The Go,walking alone safety app,Phrase,Transactional,Core Feature,
+Track Me On The Go,app that monitors your walk home,Phrase,Transactional,Core Feature,
+Track Me On The Go,solo walking safety app,Exact,Transactional,Core Feature,
+Track Me On The Go,late night safety app,Phrase,Problem-Aware,Emotional/Situational,
+Track Me On The Go,bsafe app alternative,Exact,Transactional,Competitor,
+Track Me On The Go,noonlight app alternative,Exact,Transactional,Competitor,
+Ready An Agent,panic button app,Exact,Transactional,Core Feature,High volume; competitive
+Ready An Agent,silent panic button app,Exact,Transactional,Core Feature,Strong fit for discrete use case
+Ready An Agent,personal security alert app,Exact,Transactional,Core Feature,
+Ready An Agent,emergency alert app personal safety,Phrase,Transactional,Core Feature,
+Ready An Agent,discreet safety app,Exact,Transactional,Core Feature,
+Ready An Agent,app to call for help discreetly,Phrase,Problem-Aware,Emotional/Situational,Natural-language query
+Ready An Agent,safety app with panic button,Phrase,Transactional,Core Feature,
+Ready An Agent,emergency sos app,Exact,Transactional,Core Feature,Competitive; broad reach
+Ready An Agent,personal security standby app,Phrase,Transactional,Core Feature,Lower competition
+Ready An Agent,feel unsafe app,Phrase,Problem-Aware,Emotional/Situational,Emotional entry point
+Video Monitor Me,virtual security escort app,Exact,Transactional,Core Feature,Own this term — low competition
+Video Monitor Me,live video security monitoring app,Phrase,Transactional,Core Feature,
+Video Monitor Me,security agent video call app,Phrase,Transactional,Core Feature,
+Video Monitor Me,app with live security agent,Phrase,Transactional,Core Feature,
+Video Monitor Me,virtual bodyguard app,Exact,Transactional,Core Feature,Great brand-adjacent term
+Video Monitor Me,personal security video monitoring,Phrase,Transactional,Core Feature,
+Video Monitor Me,real person safety monitoring app,Phrase,Transactional,Proof/Differentiator,Differentiates from AI-only apps
+Video Monitor Me,someone watching over me app,Phrase,Problem-Aware,Emotional/Situational,Emotional query
+Video Monitor Me,live security agent app,Exact,Transactional,Core Feature,
+Video Monitor Me,24/7 personal security monitoring,Phrase,Transactional,Core Feature,
+Send Me A Car,emergency ride app,Exact,Transactional,Core Feature,
+Send Me A Car,security car service app,Phrase,Transactional,Core Feature,
+Send Me A Car,safe ride home app,Exact,Transactional,Core Feature,
+Send Me A Car,app to get a safe car home,Phrase,Problem-Aware,Emotional/Situational,
+Send Me A Car,emergency transportation safety app,Phrase,Transactional,Core Feature,
+Send Me A Car,personal security car dispatch,Phrase,Transactional,Core Feature,Lower competition; niche
+Send Me A Car,get a safe ride without uber account,Phrase,Problem-Aware,Situational,Specific use case alignment
+Send Me A Car,app to send a car when unsafe,Phrase,Problem-Aware,Emotional/Situational,
+Send Me A Car,escape plan app,Phrase,Problem-Aware,Emotional/Situational,
+Siren,personal alarm app,Exact,Transactional,Core Feature,
+Siren,phone siren app,Exact,Transactional,Core Feature,
+Siren,loud alarm app safety,Phrase,Transactional,Core Feature,
+Siren,safety siren app,Exact,Transactional,Core Feature,
+Siren,personal safety alarm app,Exact,Transactional,Core Feature,
+Siren,emergency alarm on phone,Phrase,Transactional,Core Feature,
+Siren,app that makes loud alarm sound,Phrase,Problem-Aware,Core Feature,Conversational
+Siren,personal attack alarm app,Exact,Transactional,Core Feature,UK-influenced term; growing US use
+Siren,self defense alarm app,Phrase,Transactional,Audience,Self-defense adjacent audience
+Siren,turn phone into alarm safety,Phrase,Transactional,Core Feature,

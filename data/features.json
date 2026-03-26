@@ -1,0 +1,144 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Live Safety Agents",
+      "description": "Connect instantly with trained safety agents who monitor your location and surroundings in real-time.",
+      "icon": "user-check",
+      "benefit": "Someone is always there when you need them",
+      "segment": "both"
+    },
+    {
+      "id": 2,
+      "title": "Track Me On The Go",
+      "description": "Share your real-time location with trusted contacts or safety agents as you travel.",
+      "icon": "map-pin",
+      "benefit": "Your loved ones always know where you are",
+      "segment": "both",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "One-Touch Activation",
+      "description": "Get help immediately with a single button press. No complicated processes when seconds count.",
+      "icon": "zap",
+      "benefit": "Help arrives in seconds, not minutes",
+      "segment": "both",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "Audio Monitoring",
+      "description": "Safety agents can hear your surroundings to assess situations and provide appropriate help.",
+      "icon": "volume-2",
+      "benefit": "Agents understand your situation without you saying a word",
+      "segment": "both"
+    },
+    {
+      "id": 5,
+      "title": "Emergency Response Coordination",
+      "description": "When needed, we coordinate with local emergency services on your behalf.",
+      "icon": "phone-call",
+      "benefit": "Professional emergency coordination when it matters most",
+      "segment": "both"
+    },
+    {
+      "id": 6,
+      "title": "Family Circle Protection",
+      "description": "Monitor and protect multiple family members with shared safety features.",
+      "icon": "users",
+      "benefit": "Keep your whole family safe from one account",
+      "segment": "families",
+      "featured": true
+    },
+    {
+      "id": 7,
+      "title": "24/7 Availability",
+      "description": "Safety agents are available around the clock, every day of the year.",
+      "icon": "clock",
+      "benefit": "Protection that never sleeps",
+      "segment": "both",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "Discrete Protection",
+      "description": "Get help without drawing attention. Silent alerts and discrete monitoring available.",
+      "icon": "eye-off",
+      "benefit": "Get help without escalating unsafe situations",
+      "segment": "both"
+    }
+  ],
+  "useCases": [
+    {
+      "id": 1,
+      "title": "Walking Alone at Night",
+      "description": "Whether from work, a friend's house, or to your car - never walk alone in the dark again.",
+      "personas": ["urban-professional", "college-student", "late-shift-worker"],
+      "segment": "both"
+    },
+    {
+      "id": 2,
+      "title": "Business Travel",
+      "description": "Stay safe in unfamiliar cities while meeting clients, partners, or exploring new locations.",
+      "personas": ["business-traveler", "sales-professional"],
+      "segment": "individuals"
+    },
+    {
+      "id": 3,
+      "title": "College Students",
+      "description": "Give parents peace of mind and students 24/7 protection on and off campus.",
+      "personas": ["parent", "college-student"],
+      "segment": "families"
+    },
+    {
+      "id": 4,
+      "title": "Late Night Shifts",
+      "description": "Nurses, restaurant workers, and others leaving work at odd hours deserve safe commutes.",
+      "personas": ["healthcare-worker", "service-worker", "late-shift-worker"],
+      "segment": "both"
+    },
+    {
+      "id": 5,
+      "title": "Public Transportation",
+      "description": "Feel secure on buses, trains, and subways, especially during off-peak hours.",
+      "personas": ["city-commuter", "urban-professional"],
+      "segment": "individuals"
+    },
+    {
+      "id": 6,
+      "title": "Real Estate Agents",
+      "description": "Meeting strangers at unknown properties. Always have backup with you.",
+      "personas": ["realtor", "professional"],
+      "segment": "individuals"
+    },
+    {
+      "id": 7,
+      "title": "Running & Exercise",
+      "description": "Stay focused on your workout, not your surroundings. We'll watch out for you.",
+      "personas": ["fitness-enthusiast", "runner"],
+      "segment": "individuals"
+    },
+    {
+      "id": 8,
+      "title": "Teenage Safety",
+      "description": "Give teens independence while maintaining peace of mind for parents.",
+      "personas": ["parent", "teenager"],
+      "segment": "families"
+    }
+  ],
+  "benefits": {
+    "peace": [
+      "Sleep better knowing your loved ones are protected",
+      "Stop worrying every time someone leaves the house late",
+      "Feel confident walking anywhere, anytime",
+      "Give your family the security they deserve"
+    ],
+    "fear": [
+      "Don't wait until something happens to take action",
+      "Every minute without protection is unnecessary risk",
+      "The statistics are real - take control of your safety now",
+      "Your current safety plan isn't enough - and you know it"
+    ]
+  }
+}

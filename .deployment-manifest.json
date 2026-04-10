@@ -1,0 +1,18 @@
+{
+    "timestamp":  "2026-04-03T00:18:30Z",
+    "environment":  "production",
+    "site":  "ourbond",
+    "config":  {
+                   "sshKey":  "id_rsa_nopass",
+                   "webroot":  "/var/www/ourbond",
+                   "user":  "root",
+                   "url":  "https://try.ourbond.com",
+                   "type":  "droplet",
+                   "host":  "24.199.118.174",
+                   "nginxConfig":  "adalane-static-sites (map-based multi-tenant with SSL)",
+                   "domain":  "try.ourbond.com",
+                   "ssl":  "Let's Encrypt (expires 2026-07-02, auto-renew enabled)"
+               },
+    "buildHash":  "7c9a4e2f",
+    "notes":  "Production deployment with SSL - try.ourbond.com → /var/www/ourbond, HTTP redirects to HTTPS"
+}

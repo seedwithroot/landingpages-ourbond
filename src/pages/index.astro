@@ -10,244 +10,34 @@
     *, *::before, *::after { box-sizing: border-box; }
     body { font-family: system-ui, sans-serif; background: #f3f4f6; margin: 0; padding: 2rem; }
     h1 { font-size: 1.125rem; font-weight: 700; color: #111; margin: 0 0 0.25rem; }
-    .subtitle { font-size: 0.8125rem; color: #6b7280; margin: 0 0 2rem; }
-    a.dev-link { font-size: 0.75rem; color: #2563eb; text-decoration: underline; }
-    .section { margin-bottom: 2.5rem; }
     .section-title { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.625rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.625rem; }
     a.card { display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.75rem 1rem; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
     a.card:hover { border-color: #2563eb; box-shadow: 0 0 0 3px #dbeafe; }
     a.card .label { font-size: 0.9375rem; font-weight: 600; color: #111; display: block; margin-bottom: 0.2rem; }
     a.card .url { font-size: 0.75rem; color: #6b7280; font-family: monospace; }
-    .section--go-live { background: #0f172a; border-radius: 12px; padding: 1.25rem 1.5rem 1.5rem; margin-bottom: 2.5rem; }
-    .section--go-live .section-title { color: #38bdf8; border-bottom-color: #1e3a5f; }
-    .section--go-live a.card { background: #1e293b; border-color: #334155; }
-    .section--go-live a.card:hover { border-color: #38bdf8; box-shadow: 0 0 0 3px #0c4a6e; }
-    .section--go-live a.card .label { color: #f1f5f9; }
-    .section--go-live a.card .url { color: #64748b; }
-    .section--go-live .go-live-badge { display: inline-block; font-size: 0.625rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #38bdf8; color: #0f172a; border-radius: 4px; padding: 0.15rem 0.5rem; margin-right: 0.5rem; vertical-align: middle; }
-    /* Review section */
-    .section--review { background: #fefce8; border: 1px solid #fde047; border-radius: 12px; padding: 1.25rem 1.5rem 1.5rem; margin-bottom: 2.5rem; }
-    .section--review .section-title { color: #854d0e; border-bottom-color: #fde047; }
-    .section--review .review-badge { display: inline-block; font-size: 0.625rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #f59e0b; color: #fff; border-radius: 4px; padding: 0.15rem 0.5rem; margin-right: 0.5rem; vertical-align: middle; }
-    .section--review a.card { background: #fff; border-color: #fde68a; }
-    .section--review a.card:hover { border-color: #f59e0b; box-shadow: 0 0 0 3px #fef9c3; }
-    .section--review a.card .label { color: #111; }
-    .section--review a.card .url { color: #92400e; }
-    .section--review .card-actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
-    .section--review .card-actions a { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 5px; text-decoration: none; transition: background 0.15s; }
-    .section--review .card-actions .btn-view { background: #e5e7eb; color: #374151; }
-    .section--review .card-actions .btn-view:hover { background: #d1d5db; }
-    .section--review .card-actions .btn-review { background: #f59e0b; color: #fff; }
-    .section--review .card-actions .btn-review:hover { background: #d97706; }
   </style>
 </head>
 <body>
   <h1>OurBond — Pages</h1>
-  <p class="subtitle">View pages. <a class="dev-link" href="/dev/">Dev index &rarr;</a></p>
-
-  <!-- TEMPLATES FOR REVIEW -->
-  <div class="section section--review">
-    <div class="section-title"><span class="review-badge">Review</span> Templates — Client Review</div>
-    <div class="grid">
-      <a class="card" href="/feature-service-template-v1" target="_blank">
-        <span class="label">Feature Service Template v1</span>
-        <span class="url">/feature-service-template-v1</span>
-        <div class="card-actions">
-          <span class="btn-view">View page</span>
-          <span class="btn-review">✏️ Open with comments</span>
-        </div>
-      </a>
-      <a class="card" href="/families-peace-v2" target="_blank">
-        <span class="label">Families — Peace v2</span>
-        <span class="url">/families-peace-v2</span>
-        <div class="card-actions">
-          <span class="btn-view">View page</span>
-          <span class="btn-review">✏️ Open with comments</span>
-        </div>
-      </a>
-      <a class="card" href="/families-peace" target="_blank">
-        <span class="label">Families — Peace</span>
-        <span class="url">/families-peace</span>
-        <div class="card-actions">
-          <span class="btn-view">View page</span>
-          <span class="btn-review">✏️ Open with comments</span>
-        </div>
-      </a>
-      <a class="card" href="/families-fear" target="_blank">
-        <span class="label">Families — Fear</span>
-        <span class="url">/families-fear</span>
-        <div class="card-actions">
-          <span class="btn-view">View page</span>
-          <span class="btn-review">✏️ Open with comments</span>
-        </div>
-      </a>
-    </div>
+  <p style="font-size:0.8125rem;color:#6b7280;margin:0 0 1.5rem;">Go Live — Merged Services &mdash; Track Me + Video Monitor Me</p>
+  <div class="grid">
+    <a class="card" href="/services/merged-students-individual" target="_blank">
+      <span class="label">Students — Individual</span>
+      <span class="url">/services/merged-students-individual</span>
+    </a>
+    <a class="card" href="/services/merged-students-individual-pricing" target="_blank">
+      <span class="label">Students — Individual + Pricing</span>
+      <span class="url">/services/merged-students-individual-pricing</span>
+    </a>
+    <a class="card" href="/services/merged-lone-workers-individual" target="_blank">
+      <span class="label">Lone Workers — Individual</span>
+      <span class="url">/services/merged-lone-workers-individual</span>
+    </a>
+    <a class="card" href="/services/merged-lone-workers-individual-pricing" target="_blank">
+      <span class="label">Lone Workers — Individual + Pricing</span>
+      <span class="url">/services/merged-lone-workers-individual-pricing</span>
+    </a>
   </div>
-
-  <!-- GO LIVE — MERGED SERVICES -->
-  <div class="section section--go-live">
-    <div class="section-title"><span class="go-live-badge">Go Live</span> Merged Services — Track Me + Video Monitor Me</div>
-    <div class="grid">
-      <a class="card" href="/services/merged-students-individual" target="_blank">
-        <span class="label">Students + VMM — Individual</span>
-        <span class="url">/services/merged-students-individual</span>
-      </a>
-      <a class="card" href="/services/merged-students-family" target="_blank">
-        <span class="label">Students + VMM — Family</span>
-        <span class="url">/services/merged-students-family</span>
-      </a>
-      <a class="card" href="/services/merged-lone-workers-individual" target="_blank">
-        <span class="label">Lone Workers + VMM — Individual</span>
-        <span class="url">/services/merged-lone-workers-individual</span>
-      </a>
-      <a class="card" href="/services/merged-lone-workers-family" target="_blank">
-        <span class="label">Lone Workers + VMM — Family</span>
-        <span class="url">/services/merged-lone-workers-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TRACK ME ON THE GO -->
-  <div class="section">
-    <div class="section-title">Track Me On The Go — Base</div>
-    <div class="grid">
-      <a class="card" href="/services/track-me-on-the-go" target="_blank">
-        <span class="label">Track Me On The Go</span>
-        <span class="url">/services/track-me-on-the-go</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-individual" target="_blank">
-        <span class="label">Track Me On The Go — Individual</span>
-        <span class="url">/services/track-me-on-the-go-individual</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-family" target="_blank">
-        <span class="label">Track Me On The Go — Family</span>
-        <span class="url">/services/track-me-on-the-go-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TRACK ME ON THE GO — STUDENTS -->
-  <div class="section">
-    <div class="section-title">Track Me On The Go — Students</div>
-    <div class="grid">
-      <a class="card" href="/services/track-me-on-the-go-students" target="_blank">
-        <span class="label">Students</span>
-        <span class="url">/services/track-me-on-the-go-students</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-students-individual" target="_blank">
-        <span class="label">Students — Individual</span>
-        <span class="url">/services/track-me-on-the-go-students-individual</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-students-family" target="_blank">
-        <span class="label">Students — Family</span>
-        <span class="url">/services/track-me-on-the-go-students-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TRACK ME ON THE GO — NIGHTLIFE -->
-  <div class="section">
-    <div class="section-title">Track Me On The Go — Nightlife & Dating</div>
-    <div class="grid">
-      <a class="card" href="/services/track-me-on-the-go-nightlife" target="_blank">
-        <span class="label">Nightlife</span>
-        <span class="url">/services/track-me-on-the-go-nightlife</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-nightlife-individual" target="_blank">
-        <span class="label">Nightlife — Individual</span>
-        <span class="url">/services/track-me-on-the-go-nightlife-individual</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-nightlife-family" target="_blank">
-        <span class="label">Nightlife — Family</span>
-        <span class="url">/services/track-me-on-the-go-nightlife-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TRACK ME ON THE GO — SOLO TRAVEL -->
-  <div class="section">
-    <div class="section-title">Track Me On The Go — Solo Travel</div>
-    <div class="grid">
-      <a class="card" href="/services/track-me-on-the-go-solo-travel" target="_blank">
-        <span class="label">Solo Travel</span>
-        <span class="url">/services/track-me-on-the-go-solo-travel</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-solo-travel-individual" target="_blank">
-        <span class="label">Solo Travel — Individual</span>
-        <span class="url">/services/track-me-on-the-go-solo-travel-individual</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-solo-travel-family" target="_blank">
-        <span class="label">Solo Travel — Family</span>
-        <span class="url">/services/track-me-on-the-go-solo-travel-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TRACK ME ON THE GO — LONE WORKERS -->
-  <div class="section">
-    <div class="section-title">Track Me On The Go — Lone Workers</div>
-    <div class="grid">
-      <a class="card" href="/services/track-me-on-the-go-lone-workers" target="_blank">
-        <span class="label">Lone Workers</span>
-        <span class="url">/services/track-me-on-the-go-lone-workers</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-lone-workers-individual" target="_blank">
-        <span class="label">Lone Workers — Individual</span>
-        <span class="url">/services/track-me-on-the-go-lone-workers-individual</span>
-      </a>
-      <a class="card" href="/services/track-me-on-the-go-lone-workers-family" target="_blank">
-        <span class="label">Lone Workers — Family</span>
-        <span class="url">/services/track-me-on-the-go-lone-workers-family</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- OTHER SERVICES -->
-  <div class="section">
-    <div class="section-title">Other Services</div>
-    <div class="grid">
-      <a class="card" href="/services/location-services" target="_blank">
-        <span class="label">Location Services</span>
-        <span class="url">/services/location-services</span>
-      </a>
-      <a class="card" href="/services/location-services-premium" target="_blank">
-        <span class="label">Location Services Premium</span>
-        <span class="url">/services/location-services-premium</span>
-      </a>
-      <a class="card" href="/services/ready-an-agent" target="_blank">
-        <span class="label">Ready An Agent</span>
-        <span class="url">/services/ready-an-agent</span>
-      </a>
-      <a class="card" href="/services/video-monitor-me" target="_blank">
-        <span class="label">Video Monitor Me</span>
-        <span class="url">/services/video-monitor-me</span>
-      </a>
-      <a class="card" href="/services/send-me-a-car" target="_blank">
-        <span class="label">Send Me A Car</span>
-        <span class="url">/services/send-me-a-car</span>
-      </a>
-      <a class="card" href="/services/siren" target="_blank">
-        <span class="label">Siren</span>
-        <span class="url">/services/siren</span>
-      </a>
-    </div>
-  </div>
-
 </body>
 </html>
-<script>
-  document.querySelectorAll('.section--review a.card').forEach(card => {
-    card.addEventListener('click', e => {
-      const btn = e.target.closest('.btn-view, .btn-review');
-      if (!btn) return;
-      e.preventDefault();
-      const href = card.getAttribute('href');
-      if (btn.classList.contains('btn-review')) {
-        window.open(href + '?review=true', '_blank');
-      } else {
-        window.open(href, '_blank');
-      }
-    });
-  });
-</script>

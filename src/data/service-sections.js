@@ -97,7 +97,7 @@ const featureCards = {
         {
           icon: 'user-check',
           title: 'Live security agents',
-          body: "A trained agent is one tap away during any solo shift — and can coordinate with 911 on the worker's behalf.",
+          body: "A trained agent is one tap away during any shift — and can coordinate with 911 on the worker's behalf.",
         },
       ],
     },
@@ -193,7 +193,7 @@ const arrivalAlerts = {
       headline: "Know every worker made it in and out safe.",
       body: "Bond tracks lone workers from the moment they arrive on site to when they leave. Supervisors get automatic check-in summaries — and instant alerts if something goes off-plan.",
       bullets: [
-        "Arrival and departure alerts for every solo shift",
+        "Arrival and departure alerts for every shift",
         "Automatic check-ins throughout the workday",
         "Supervisors notified instantly if a worker goes silent",
         "Full location history for incident reporting",
@@ -288,10 +288,10 @@ const liveAgent = {
     },
     // Lone workers
     loneWorkers: {
-      headline: 'A safety agent on every solo shift.',
+      headline: 'A safety agent on every shift.',
       body: "If a lone worker finds themselves in an unsafe situation, Bond's trained agents are one tap away — able to escalate to emergency services, dispatch help, and stay on the line until the situation is resolved.",
       bullets: [
-        'Available throughout every solo shift, 24/7',
+        'Available throughout every shift, 24/7',
         'Can escalate to 911 and provide GPS location instantly',
         'Video, audio, or text check-in available',
         'Reduces employer liability and improves duty of care',
@@ -332,7 +332,7 @@ const hookCta = {
     },
     loneWorkers: {
       headline: "Lone worker incidents happen fast.\nResponse time is everything.",
-      body: "Bond monitors every solo shift in real time. Automatic check-ins, instant escalation, and a live agent always within reach — before the situation becomes a crisis.",
+      body: "Bond monitors every shift in real time. Automatic check-ins, instant escalation, and a live agent always within reach — before the situation becomes a crisis.",
     },
   },
 };
@@ -359,7 +359,7 @@ const socialProof = {
     },
     loneWorkers: {
       eyebrow: 'Trusted by employers and workers',
-      headline: "Loved by teams\nwho work solo.",
+      headline: "Loved by teams\nwho work in the field.",
     },
   },
 };

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import reviewsData from '../data/reviews.js';
+import { getAppStoreLink, getGooglePlayLink } from '../data/cta-links.js';
 
 // ─────────────────────────────────────────────────────────────
 // PAGE CONFIG — edit this object to create a new template.
@@ -196,8 +197,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
         )}
         {page.hero.showAppButtons && (
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
-            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+            <a href={getAppStoreLink('hero')}>
+              <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+            </a>
+            <a href={getGooglePlayLink('hero')}>
+              <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+            </a>
           </div>
         )}
         {page.hero.trustLine && (
@@ -237,8 +242,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
             <ul class="feature-list">{s.bullets.map(b => <li>{b}</li>)}</ul>
             {s.showAppButtons && (
               <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
-                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
-                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+                <a href={getAppStoreLink(s.id)}>
+                  <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                </a>
+                <a href={getGooglePlayLink(s.id)}>
+                  <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+                </a>
               </div>
             )}
           </div>
@@ -266,8 +275,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
             <ul class="feature-list">{s.bullets.map(b => <li>{b}</li>)}</ul>
             {s.showAppButtons && (
               <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
-                <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
-                <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+                <a href={getAppStoreLink(s.id)}>
+                  <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 44px; width: auto; filter: invert(1);" />
+                </a>
+                <a href={getGooglePlayLink(s.id)}>
+                  <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 44px; width: auto; filter: invert(1);" />
+                </a>
               </div>
             )}
           </div>
@@ -284,8 +297,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       <p style="text-align: center; color: #555; font-size: 1.125rem; margin: 0 0 1.75rem; max-width: 600px; margin-left: auto; margin-right: auto;">{page.featureGrid.subheadline}</p>
       {page.featureGrid.showAppButtons && (
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
-          <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
-          <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+          <a href={getAppStoreLink('features')}>
+            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+          </a>
+          <a href={getGooglePlayLink('features')}>
+            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+          </a>
         </div>
       )}
       {page.featureGrid.video && (
@@ -380,8 +397,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       <p style="font-size: 1.1875rem; color: #aaa; line-height: 1.65; margin: 0 0 2.5rem;">{page.hook.body}</p>
       {page.hook.showAppButtons && (
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
-          <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 52px; width: auto;" />
+          <a href={getAppStoreLink('hook')}>
+            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+          </a>
+          <a href={getGooglePlayLink('hook')}>
+            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 52px; width: auto;" />
+          </a>
         </div>
       )}
     </div>
@@ -404,8 +425,12 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
         </div>
         {page.socialProof.showAppButtons && (
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
-            <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+            <a href={getAppStoreLink('social-proof')}>
+              <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto; filter: invert(1);" />
+            </a>
+            <a href={getGooglePlayLink('social-proof')}>
+              <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto; filter: invert(1);" />
+            </a>
           </div>
         )}
       </div>

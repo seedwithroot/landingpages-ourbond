@@ -23,18 +23,13 @@ const page = {
     trustLine: "Trusted by students at 200+ colleges across the US",
     image: "https://www.ourbond.com/wp-content/uploads/slider114/group-487bs_standarts_image.png",
     imageAlt: "Bond app — Track Me On The Go",
-    showAppButtons: true,
-    headlineVariants: [
-      "A trained security agent on the line until you're back at your dorm.",
-      "The confidence to go anywhere, solo.",
-      "Personal security that follows your lead.",
-    ],
+    showAppButtons: true
   },
 
   featureGrid: {
     label: "B — Feature Cards",
     headline: "Bond is more than just {focusedService}.",
-    subheadline: "Real-time location is just the start. Bond covers every solo trip with live agent monitoring, arrival alerts, and a trusted contact who always knows where you are.",
+    subheadline: "Real-time location is just the start. Bond covers every trip with live agent monitoring, arrival alerts, and a trusted contact who always knows where you are.",
     video: "https://www.ourbond.com/wp-content/uploads/slider112/bond_website_loop_v5_comp_x3.mp4",
     showAppButtons: true,
     cards: [
@@ -69,7 +64,7 @@ const page = {
         "Agent ready and watching before every trip starts",
         "Completely discreet — runs silently in the background",
         "Auto-escalation if you stop moving or don't arrive on time",
-        "Share your route with a trusted contact — a roommate, a friend, anyone you choose",
+        "Share your location with a trusted contact — a roommate, a friend, anyone you choose",
       ],
       showAppButtons: true,
       media: {
@@ -91,7 +86,7 @@ const page = {
         "Journey monitoring from departure to arrival",
         "Trusted contact notified automatically — no text needed",
         "Auto-escalation if you don't arrive on time",
-        "GPS and location photo sent to first responders if needed",
+        "First responders orchestrated if needed",
       ],
       showAppButtons: true,
       media: {
@@ -112,7 +107,7 @@ const page = {
         "Live video, audio, or text — connect however feels safest",
         "Agent monitors you and your surroundings in real time",
         "Agent appears in seconds — no hold time, no queue",
-        "Coordinates police, fire, and EMS if it escalates",
+        "First responders orchestrated if needed",
       ],
       showAppButtons: true,
       media: {
@@ -126,7 +121,7 @@ const page = {
 
   hook: {
     label: "F — Hook CTA",
-    headline: "Most campus incidents happen\nwithin a few blocks of home.",
+    headline: "Most incidents happen\nwithin a few blocks of home.",
     body: "Bond covers those blocks. Live monitoring, an agent on standby, and instant escalation — starting the moment you leave.",
     showAppButtons: true,
   },
@@ -148,10 +143,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
 ---
 
 <Layout title={page.meta.title} description={page.meta.description}>
-
-  <!-- TRUST BAR -->
   <div style="background: #f5f4f1; border-bottom: 1px solid #e5e5e5; padding: 0.75rem 0; position: relative;">
-    <span class="section-label">A.1 — Hero Trust Strip</span>
     <div class="container" style="display: flex; justify-content: center;">
       <picture>
         <source media="(max-width: 768px)" srcset="https://www.ourbond.com/wp-content/uploads/slider113/partners_mobile.png" />
@@ -164,13 +156,10 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       </picture>
     </div>
   </div>
-
-  <!-- HERO -->
   <section id="hero" style="background: #faf9f6; padding: 5rem 0 3rem; position: relative;">
-    <span class="section-label">{page.hero.label}</span>
     <div class="hero-grid">
       <div>
-        <h1 id="hero-headline" data-variants={JSON.stringify(page.hero.headlineVariants)} style="font-size: 3.25rem; font-weight: 800; line-height: 1.15; color: #111; margin: 0 0 1.25rem;">
+        <h1 style="font-size: 3.25rem; font-weight: 800; line-height: 1.15; color: #111; margin: 0 0 1.25rem;">
           {page.hero.headline.split('\n').map((line, i) => (
             <>{line}{i < page.hero.headline.split('\n').length - 1 && <br />}</>
           ))}
@@ -203,25 +192,18 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       </div>
     </div>
   </section>
-
-  <!-- REVIEW STRIP -->
   <section id="review-strip" style="background: #fff; padding: 2.5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; position: relative;">
-    <span class="section-label">B.1 — Review Strip</span>
     <div style="display: flex; gap: 1.5rem; padding: 0 2rem; flex-wrap: wrap; justify-content: center; max-width: 1100px; margin: 0 auto;">
       {reviews.slice(0, 4).map(r => (
         <div style="background: #faf9f6; border-radius: 12px; padding: 1.25rem 1.5rem; max-width: 300px; flex: 1; min-width: 240px;">
           <div style="color: #f59e0b; font-size: 0.875rem; margin-bottom: 0.5rem;">{"★".repeat(r.rating ?? 5)}</div>
-          <p style="font-size: 0.9375rem; color: #333; line-height: 1.5; margin: 0 0 0.75rem;">"{r.text.slice(0, 120)}…"</p>
-          <p style="font-size: 0.875rem; font-weight: 600; color: #111; margin: 0;">— {r.author}</p>
+          <p style="font-size: 0.9375rem; color: #333; line-height: 1.5; margin: 0;">"{r.text.slice(0, 120)}…"</p>
         </div>
       ))}
     </div>
   </section>
-
-  <!-- ALTERNATING SECTIONS: after-reviews -->
   {page.featureSections.filter(s => s.position === 'after-reviews').map(s => (
     <section id={s.id} style={`background: ${s.bg}; padding: 5rem 0; position: relative;`}>
-      <span class="section-label">{s.label}</span>
       <div class={`feature-row${s.layout === 'copy-right' ? ' feature-row--media-first' : ''}`}>
         {s.layout === 'copy-left' && (
           <div class="feature-copy">
@@ -269,10 +251,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       </div>
     </section>
   ))}
-
-  <!-- FEATURE CARD GRID -->
   <section id="features" style="background: #faf9f6; padding: 5rem 0; position: relative;">
-    <span class="section-label">{page.featureGrid.label}</span>
     <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
       <h2 style="font-size: 2.5rem; font-weight: 800; color: #111; text-align: center; margin: 0 0 0.75rem;">{featureGridHeadline}</h2>
       <p style="text-align: center; color: #555; font-size: 1.125rem; margin: 0 0 1.75rem; max-width: 600px; margin-left: auto; margin-right: auto;">{page.featureGrid.subheadline}</p>
@@ -297,11 +276,8 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       </div>
     </div>
   </section>
-
-  <!-- ALTERNATING SECTIONS: after-grid -->
   {page.featureSections.filter(s => s.position === 'after-grid').map(s => (
     <section id={s.id} style={`background: ${s.bg}; padding: 5rem 0; position: relative;`}>
-      <span class="section-label">{s.label}</span>
       <div class={`feature-row${s.layout === 'copy-right' ? ' feature-row--media-first' : ''}`}>
         {s.layout === 'copy-left' && (
           <div class="feature-copy">
@@ -349,10 +325,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       </div>
     </section>
   ))}
-
-  <!-- EMOTIONAL HOOK -->
   <section id="hook" style="background: #111; padding: 5rem 0; position: relative;">
-    <span class="section-label section-label--dark">{page.hook.label}</span>
     <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 2rem; text-align: center;">
       <h2 style="font-size: 2.75rem; font-weight: 800; color: #fff; line-height: 1.2; margin: 0 0 1.25rem;">
         {page.hook.headline.split('\n').map((line, i) => (
@@ -368,10 +341,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
       )}
     </div>
   </section>
-
-  <!-- SOCIAL PROOF -->
   <section id="social-proof" style="background: #faf9f6; padding: 5rem 0; position: relative;">
-    <span class="section-label">{page.socialProof.label}</span>
     <div class="proof-grid">
       <div>
         <p style="font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 1rem;">{page.socialProof.eyebrow}</p>
@@ -395,8 +365,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
         {reviews.slice(0, page.socialProof.reviewCount).map(r => (
           <div style="background: #fff; border-radius: 12px; padding: 1.5rem; border: 1px solid #eee;">
             <div style="color: #f59e0b; margin-bottom: 0.5rem;">{"★".repeat(r.rating ?? 5)}</div>
-            <p style="font-size: 1rem; color: #333; line-height: 1.55; margin: 0 0 0.75rem;">"{r.text.slice(0, 160)}…"</p>
-            <p style="font-size: 0.875rem; font-weight: 700; color: #111; margin: 0;">{r.author}</p>
+            <p style="font-size: 1rem; color: #333; line-height: 1.55; margin: 0;">"{r.text.slice(0, 160)}…"</p>
           </div>
         ))}
       </div>
@@ -404,47 +373,11 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
   </section>
 
 
-  <!-- HEADLINE SWITCHER (preview tool) -->
-  <div id="headline-switcher" style="position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999; background: #0f172a; border-radius: 12px; padding: 0.75rem 1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 0.75rem; font-family: system-ui, sans-serif;">
-    <span style="font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b;">Headline</span>
-    <div style="display: flex; gap: 0.375rem;">
-      <button data-v="0" style="font-size: 0.8125rem; font-weight: 700; color: #38bdf8; background: #1e293b; border: 1px solid #38bdf8; border-radius: 6px; padding: 0.25rem 0.625rem; cursor: pointer;">A</button>
-      <button data-v="1" style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 0.25rem 0.625rem; cursor: pointer;">B</button>
-      <button data-v="2" style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 0.25rem 0.625rem; cursor: pointer;">C</button>
-    </div>
-  </div>
-  <script>
-    (function() {
-      const h1 = document.getElementById('hero-headline');
-      const switcher = document.getElementById('headline-switcher');
-      if (!h1 || !switcher) return;
-      const variants = JSON.parse(h1.dataset.variants || '[]');
-      if (!variants.length) return;
-      const btns = switcher.querySelectorAll('button');
-      function setVariant(i) {
-        h1.textContent = variants[i];
-        btns.forEach((b, idx) => {
-          b.style.color = idx === i ? '#38bdf8' : '#94a3b8';
-          b.style.borderColor = idx === i ? '#38bdf8' : '#334155';
-        });
-      }
-      btns.forEach((btn) => {
-        btn.addEventListener('click', () => setVariant(parseInt(btn.dataset.v)));
-      });
-    })();
-  </script>
 
 </Layout>
 
 <style>
   :global(body) { background: #faf9f6; color: #111; }
-  .section-label {
-    position: absolute; top: 0.5rem; left: 0.75rem;
-    font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    background: rgba(37, 99, 235, 0.12); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25);
-    padding: 0.2rem 0.55rem; border-radius: 4px; pointer-events: none; z-index: 10;
-  }
-  .section-label--dark { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
   .hero-grid, .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
   .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
   .feature-eyebrow { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #2563eb; margin: 0 0 0.75rem; }

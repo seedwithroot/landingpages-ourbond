@@ -9,6 +9,7 @@ import ReviewBlock from '../components/ReviewBlock.astro';
 import ServicesShowcase from '../components/ServicesShowcase.astro';
 import reviewsData from '../data/reviews.js';
 import tracksData from '../data/tracks.js';
+import { ctaLinks } from '../data/cta-links.js';
 
 const familyReviews = reviewsData.reviews.filter(r => r.segment === 'families' || r.persona === 'parent');
 

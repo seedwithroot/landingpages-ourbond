@@ -59,7 +59,6 @@ All components imported from sitefuelppc theme:
 - `BenefitsColumn` - Detailed benefits with icons
 - `CTA` - Final call-to-action section (3 variants)
 - `QuoteForm` - Available but not used (app download focus)
-- `ApolloFormEnrichment` - Form enrichment integration
 
 ## 📊 Data Repository
 

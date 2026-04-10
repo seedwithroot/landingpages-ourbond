@@ -9,6 +9,7 @@ import ReviewBlock from '../components/ReviewBlock.astro';
 import ServicesShowcase from '../components/ServicesShowcase.astro';
 import reviewsData from '../data/reviews.js';
 import tracksData from '../data/tracks.js';
+import { ctaLinks } from '../data/cta-links.js';
 
 const familyReviews = reviewsData.reviews.filter(r => r.segment === 'families' || r.persona === 'parent');
 
@@ -77,7 +78,7 @@ const detailedBenefits = [
   <section style="padding: 2rem 0; background: white; border-bottom: 1px solid #e8ecef;">
     <div class="container">
       <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <a href="#" class="cta-large">Start Connecting Today</a>
+        <a href={ctaLinks.primary} class="cta-large">Start Connecting Today</a>
       </div>
       <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9375rem;">
         [PLACEHOLDER] Join thousands of families staying connected

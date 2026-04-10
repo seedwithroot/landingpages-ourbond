@@ -183,7 +183,7 @@ export default {
       "Professional security that travels with you wherever you go",
       "Affordable monthly subscription instead of expensive bodyguard services",
       "Instant access to help without the stigma of calling 911",
-      "Peace of mind for solo travelers and late-night workers"
+      "Peace of mind for travelers and late-night workers"
     ]
   },
   

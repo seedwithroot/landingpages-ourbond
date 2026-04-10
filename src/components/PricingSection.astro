@@ -74,38 +74,38 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
 <section
   id="pricing"
   data-pricing-uid={uid}
-  style={`background: ${bg}; padding: 5rem 0; position: relative;`}
+  style={`background: ${bg}; padding: 3rem 0; position: relative;`}
 >
-  <div style="max-width: 920px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+  <div class="pricing-container">
     {eyebrow && (
-      <p style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #2563eb; margin: 0 0 0.75rem;">
+      <p class="pricing-eyebrow">
         {eyebrow}
       </p>
     )}
     {headline && (
-      <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #111; line-height: 1.15; margin: 0 0 0.5rem;">
+      <h2 class="pricing-headline">
         {headline}
       </h2>
     )}
     {subheadline && (
-      <p style="font-size: 1.0625rem; color: #555; margin: 0 0 2.5rem;">{subheadline}</p>
+      <p class="pricing-subheadline">{subheadline}</p>
     )}
 
     <!-- Toggle -->
-    <div style="display: inline-flex; background: #fff; border-radius: 999px; padding: 0.25rem; border: 1px solid #e5e5e5; margin-bottom: 3rem; gap: 0;">
+    <div class="pricing-toggle">
       <button
         data-period-btn="monthly"
-        style="font-size: 0.9375rem; font-weight: 600; padding: 0.5rem 1.5rem; border-radius: 999px; border: none; cursor: pointer; background: #111; color: #fff; transition: background 0.15s, color 0.15s;"
+        class="pricing-toggle-btn active"
       >
         Monthly
       </button>
       <button
         data-period-btn="annual"
-        style="font-size: 0.9375rem; font-weight: 600; padding: 0.5rem 1.5rem; border-radius: 999px; border: none; cursor: pointer; background: transparent; color: #555; display: flex; align-items: center; gap: 0.5rem; transition: background 0.15s, color 0.15s;"
+        class="pricing-toggle-btn"
       >
         Annually
         {saveBadgeText && (
-          <span style="font-size: 0.75rem; font-weight: 700; background: #dcfce7; color: #166534; padding: 0.15rem 0.5rem; border-radius: 4px;">
+          <span class="pricing-save-badge">
             {saveBadgeText}
           </span>
         )}
@@ -113,52 +113,52 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
     </div>
 
     <!-- Plan cards -->
-    <div style={`display: grid; grid-template-columns: repeat(${plans.length}, 1fr); gap: 1.5rem; text-align: left; align-items: stretch;`}>
+    <div class="pricing-cards">
       {plans.map(plan => (
-        <div style={`background: #fff; border-radius: 20px; padding: 2rem; border: ${plan.featured ? '2px solid #2563eb' : '1px solid #e5e5e5'}; position: relative; overflow: hidden; display: flex; flex-direction: column;`}>
+        <div class={`pricing-card ${plan.featured ? 'pricing-card-featured' : ''}`}>
           {plan.featured && (
-            <div style="position: absolute; top: 0; left: 0; right: 0; background: #2563eb; text-align: center; padding: 0.4rem; font-size: 0.8125rem; font-weight: 700; color: #fff; letter-spacing: 0.04em;">
+            <div class="pricing-card-badge">
               Most popular
             </div>
           )}
-          <div style={`display: flex; flex-direction: column; flex: 1; ${plan.featured ? 'margin-top: 1.5rem;' : ''}`}>
-            <p style="font-size: 1.375rem; font-weight: 800; color: #111; margin: 0 0 0.375rem;">{plan.name}</p>
+          <div class="pricing-card-content">
+            <p class="pricing-card-name">{plan.name}</p>
             {plan.subtitle && (
-              <p style="font-size: 0.9rem; color: #555; margin: 0 0 1rem;">{plan.subtitle}</p>
+              <p class="pricing-card-subtitle">{plan.subtitle}</p>
             )}
 
             <!-- Monthly price block -->
-            <div data-price-monthly style="margin-bottom: 1.5rem;">
+            <div data-price-monthly class="pricing-price-block">
               {plan.monthly.was && (
-                <p style="font-size: 0.8125rem; color: #aaa; text-decoration: line-through; margin: 0 0 0.125rem;">{plan.monthly.was}</p>
+                <p class="pricing-was-price">{plan.monthly.was}</p>
               )}
-              <p style="font-size: 2.25rem; font-weight: 800; color: #111; margin: 0; line-height: 1;">
+              <p class="pricing-price">
                 {plan.monthly.price}
-                <span style="font-size: 1rem; font-weight: 500; color: #555;">{plan.monthly.unit ?? '/mo'}</span>
+                <span class="pricing-unit">{plan.monthly.unit ?? '/mo'}</span>
               </p>
             </div>
 
             <!-- Annual price block -->
-            <div data-price-annual style="display: none; margin-bottom: 1.5rem;">
+            <div data-price-annual class="pricing-price-block" style="display: none;">
               {plan.annual.was && (
-                <p style="font-size: 0.8125rem; color: #aaa; text-decoration: line-through; margin: 0 0 0.125rem;">{plan.annual.was}</p>
+                <p class="pricing-was-price">{plan.annual.was}</p>
               )}
-              <p style="font-size: 2.25rem; font-weight: 800; color: #111; margin: 0; line-height: 1;">
+              <p class="pricing-price">
                 {plan.annual.price}
-                <span style="font-size: 1rem; font-weight: 500; color: #555;">{plan.annual.unit ?? '/mo'}</span>
+                <span class="pricing-unit">{plan.annual.unit ?? '/mo'}</span>
               </p>
               {plan.annual.billed && (
-                <p style="font-size: 0.8125rem; color: #166534; font-weight: 600; margin: 0.25rem 0 0;">{plan.annual.billed}</p>
+                <p class="pricing-billed">{plan.annual.billed}</p>
               )}
             </div>
 
             {plan.featuresLabel && (
-              <p style="font-size: 0.875rem; font-weight: 700; color: #111; margin: 0 0 0.75rem;">{plan.featuresLabel}</p>
+              <p class="pricing-features-label">{plan.featuresLabel}</p>
             )}
-            <ul style="list-style: none; padding: 0; margin: 0 0 1.75rem; display: flex; flex-direction: column; gap: 0.6rem;">
+            <ul class="pricing-features">
               {plan.features.map(f => (
-                <li style="font-size: 0.9375rem; color: #333; display: flex; gap: 0.6rem; align-items: flex-start;">
-                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">&#10003;</span>
+                <li class="pricing-feature">
+                  <span class="pricing-check">&#10003;</span>
                   {f}
                 </li>
               ))}
@@ -169,7 +169,7 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
               data-href-monthly={plan.ctaHrefMonthly ?? plan.ctaHref ?? '#'}
               data-href-annual={plan.ctaHrefAnnual ?? plan.ctaHref ?? '#'}
               href={plan.ctaHrefMonthly ?? plan.ctaHref ?? '#'}
-              style={`display: block; background: ${plan.featured ? '#2563eb' : '#111'}; color: #fff; text-align: center; font-size: 1rem; font-weight: 700; padding: 0.875rem 1.5rem; border-radius: 10px; text-decoration: none; margin-top: auto;`}
+              class={`pricing-cta ${plan.featured ? 'pricing-cta-featured' : ''}`}
             >
               {plan.ctaText ?? 'Try 30 days free'}
             </a>
@@ -179,6 +179,285 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
     </div>
   </div>
 </section>
+
+<style>
+  .pricing-container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .pricing-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2563eb;
+    margin: 0 0 0.75rem;
+  }
+
+  .pricing-headline {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+  }
+
+  .pricing-subheadline {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: #555;
+    margin: 0 0 2rem;
+  }
+
+  .pricing-toggle {
+    display: inline-flex;
+    background: #fff;
+    border-radius: 999px;
+    padding: 0.25rem;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 2.5rem;
+    gap: 0;
+  }
+
+  .pricing-toggle-btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .pricing-toggle-btn.active {
+    background: #111;
+    color: #fff;
+  }
+
+  .pricing-save-badge {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card-featured {
+    border: 2px solid #2563eb;
+  }
+
+  .pricing-card-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #2563eb;
+    text-align: center;
+    padding: 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .pricing-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .pricing-card-featured .pricing-card-content {
+    margin-top: 1.5rem;
+  }
+
+  .pricing-card-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 0.375rem;
+  }
+
+  .pricing-card-subtitle {
+    font-size: 0.875rem;
+    color: #555;
+    margin: 0 0 1rem;
+  }
+
+  .pricing-price-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-was-price {
+    font-size: 0.8125rem;
+    color: #aaa;
+    text-decoration: line-through;
+    margin: 0 0 0.125rem;
+  }
+
+  .pricing-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .pricing-unit {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #555;
+  }
+
+  .pricing-billed {
+    font-size: 0.8125rem;
+    color: #166534;
+    font-weight: 600;
+    margin: 0.25rem 0 0;
+  }
+
+  .pricing-features-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.75rem;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .pricing-feature {
+    font-size: 0.875rem;
+    color: #333;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .pricing-check {
+    color: #2563eb;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pricing-cta {
+    display: block;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: auto;
+    transition: background 0.2s;
+  }
+
+  .pricing-cta:hover {
+    background: #000;
+  }
+
+  .pricing-cta-featured {
+    background: #2563eb;
+  }
+
+  .pricing-cta-featured:hover {
+    background: #1d4ed8;
+  }
+
+  @media (min-width: 640px) {
+    .pricing-container {
+      padding: 0 2rem;
+    }
+
+    .pricing-toggle-btn {
+      font-size: 0.9375rem;
+      padding: 0.5rem 1.5rem;
+    }
+
+    .pricing-save-badge {
+      font-size: 0.75rem;
+    }
+
+    .pricing-card {
+      padding: 2rem;
+    }
+
+    .pricing-card-name {
+      font-size: 1.375rem;
+    }
+
+    .pricing-card-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .pricing-price {
+      font-size: 2.25rem;
+    }
+
+    .pricing-unit {
+      font-size: 1rem;
+    }
+
+    .pricing-feature {
+      font-size: 0.9375rem;
+    }
+
+    .pricing-features {
+      margin: 0 0 1.75rem;
+    }
+
+    .pricing-cta {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .pricing-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pricing-cards {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+</style>
 
 <script is:inline define:vars={{ uid }}>
   (function () {
@@ -200,10 +479,14 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
         var annualHref = link.getAttribute('data-href-annual');
         link.setAttribute('href', isAnnual ? annualHref : monthlyHref);
       });
-      mBtn.style.background = isAnnual ? 'transparent' : '#111';
-      mBtn.style.color = isAnnual ? '#555' : '#fff';
-      aBtn.style.background = isAnnual ? '#111' : 'transparent';
-      aBtn.style.color = isAnnual ? '#fff' : '#555';
+      
+      if (isAnnual) {
+        mBtn.classList.remove('active');
+        aBtn.classList.add('active');
+      } else {
+        mBtn.classList.add('active');
+        aBtn.classList.remove('active');
+      }
     }
 
     mBtn.addEventListener('click', function () { applyPeriod(false); });

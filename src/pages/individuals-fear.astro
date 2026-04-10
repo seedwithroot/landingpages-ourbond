@@ -9,6 +9,7 @@ import ReviewBlock from '../components/ReviewBlock.astro';
 import ServicesShowcase from '../components/ServicesShowcase.astro';
 import reviewsData from '../data/reviews.js';
 import tracksData from '../data/tracks.js';
+import { ctaLinks } from '../data/cta-links.js';
 
 const individualReviews = reviewsData.reviews.filter(r => r.segment === 'individuals' || r.useCase === 'late-night-walk' || r.useCase === 'traveling-alone');
 
@@ -77,7 +78,7 @@ const detailedBenefits = [
   <section style="padding: 2rem 0; background: #1a1a1a; border-bottom: 1px solid #333;">
     <div class="container">
       <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <a href="#" style="display: inline-block; background: #dc3545; color: white; padding: 1.25rem 3rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 1.125rem; transition: background-color 0.3s; text-align: center;">
+        <a href={ctaLinks.primary} style="display: inline-block; background: #dc3545; color: white; padding: 1.25rem 3rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 1.125rem; transition: background-color 0.3s; text-align: center;">
           Take Action Immediately
         </a>
       </div>

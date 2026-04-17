@@ -45,7 +45,7 @@ const featureCards = {
         {
           icon: 'map',
           title: 'Real-time location',
-          body: "See your whole family on a live map — where they are, which direction they're moving, and when they'll arrive.",
+          body: "See your whole family on a live map — where they are, which direction they're moving, and how long they've been there.",
         },
         {
           icon: 'bell',

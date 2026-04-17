@@ -4,7 +4,17 @@
 **Theme:** Based on sitefuelppc Houston page design  
 **Focus:** App download CTAs instead of quote forms
 
-## 📄 Page Structure
+## � Deployment
+
+**Staging**: `npm run deploy:safe ourbond staging`  
+→ lp-ourbond.adalane.com (137.184.116.148)
+
+**Production**: `npm run deploy:safe ourbond production`  
+→ try.ourbond.com (24.199.118.174)
+
+See [deployment skill](.github/skills/deployment/SKILL.md) for full documentation.
+
+## �📄 Page Structure
 
 ### Main Pages
 

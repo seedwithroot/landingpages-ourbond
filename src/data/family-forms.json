@@ -1,0 +1,186 @@
+{
+  "families-peace": {
+    "page": "families-peace",
+    "theme": "light",
+    "variant": "peace-of-mind",
+    "form": {
+      "header": {
+        "title": "Start Connecting with Your Family",
+        "subtitle": "Get started today and bring your family closer together"
+      },
+      "fields": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": "Your Name *",
+          "required": true
+        },
+        {
+          "type": "email",
+          "name": "email",
+          "placeholder": "Email Address *",
+          "required": true
+        },
+        {
+          "type": "tel",
+          "name": "phone",
+          "placeholder": "Phone Number *",
+          "required": true
+        },
+        {
+          "type": "select",
+          "name": "family_size",
+          "placeholder": "Family Size",
+          "options": [
+            { "value": "", "label": "How many family members?" },
+            { "value": "2-3", "label": "2-3 members" },
+            { "value": "4-5", "label": "4-5 members" },
+            { "value": "6+", "label": "6+ members" }
+          ],
+          "required": false
+        },
+        {
+          "type": "textarea",
+          "name": "message",
+          "placeholder": "How can we help your family stay connected?",
+          "rows": 3,
+          "required": false
+        }
+      ],
+      "submit": {
+        "text": "Get Started Today",
+        "color": "#2563eb"
+      },
+      "disclaimer": "By submitting this form, you agree to receive communications from Bond. We respect your privacy and your family's security.",
+      "action": "/api/family-quote",
+      "tracking": {
+        "segment": "families",
+        "variant": "peace",
+        "campaign": "family-connection"
+      }
+    }
+  },
+  "families-fear": {
+    "page": "families-fear",
+    "theme": "dark",
+    "variant": "fear-based",
+    "form": {
+      "header": {
+        "title": "Protect Your Family Now",
+        "subtitle": "Don't wait until it's too late. Get urgent protection today."
+      },
+      "fields": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": "Your Name *",
+          "required": true
+        },
+        {
+          "type": "email",
+          "name": "email",
+          "placeholder": "Email Address *",
+          "required": true
+        },
+        {
+          "type": "tel",
+          "name": "phone",
+          "placeholder": "Phone Number (for urgent contact) *",
+          "required": true
+        },
+        {
+          "type": "select",
+          "name": "urgency",
+          "placeholder": "How urgent is your need?",
+          "options": [
+            { "value": "", "label": "How urgent is your need?" },
+            { "value": "immediate", "label": "Immediate - Need help now" },
+            { "value": "this-week", "label": "This week" },
+            { "value": "planning", "label": "Planning ahead" }
+          ],
+          "required": false
+        },
+        {
+          "type": "textarea",
+          "name": "message",
+          "placeholder": "Tell us about your family's security concerns...",
+          "rows": 3,
+          "required": false
+        }
+      ],
+      "submit": {
+        "text": "Get Protected Now",
+        "color": "#dc3545"
+      },
+      "disclaimer": "⚠️ Time-sensitive: You will receive a response within 24 hours. For immediate emergencies, call 911.",
+      "action": "/api/family-quote",
+      "tracking": {
+        "segment": "families",
+        "variant": "fear",
+        "campaign": "family-urgent-protection"
+      }
+    }
+  },
+  "families-peace-v2": {
+    "page": "families-peace-v2",
+    "theme": "light",
+    "variant": "peace-of-mind-v2",
+    "form": {
+      "header": {
+        "title": "When They're Safe, You're Safe",
+        "subtitle": "Download Bond and stay connected to your family in under 60 seconds"
+      },
+      "fields": [
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": "Your Name *",
+          "required": true
+        },
+        {
+          "type": "email",
+          "name": "email",
+          "placeholder": "Email Address *",
+          "required": true
+        },
+        {
+          "type": "tel",
+          "name": "phone",
+          "placeholder": "Phone Number *",
+          "required": true
+        },
+        {
+          "type": "select",
+          "name": "primary_need",
+          "placeholder": "What's most important to you?",
+          "options": [
+            { "value": "", "label": "What's most important to you?" },
+            { "value": "location-tracking", "label": "Real-time location tracking" },
+            { "value": "arrival-alerts", "label": "Arrival & departure alerts" },
+            { "value": "live-agent", "label": "Access to live security agents" },
+            { "value": "all", "label": "Complete family safety package" }
+          ],
+          "required": false
+        },
+        {
+          "type": "textarea",
+          "name": "message",
+          "placeholder": "Any specific concerns or questions?",
+          "rows": 3,
+          "required": false
+        }
+      ],
+      "submit": {
+        "text": "Get Started Free",
+        "color": "#2563eb"
+      },
+      "disclaimer": "Free to download. Active in under 60 seconds. Trusted by families across the US.",
+      "action": "/api/family-quote",
+      "tracking": {
+        "segment": "families",
+        "variant": "peace-v2",
+        "campaign": "family-safety-app"
+      }
+    }
+  }
+}

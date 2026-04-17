@@ -1,0 +1,29 @@
+{
+  "sites": {
+    "ourbond": {
+      "staging": {
+        "type": "droplet",
+        "host": "137.184.116.148",
+        "user": "root",
+        "sshKey": "id_rsa_nopass",
+        "webroot": "/var/www/lp-ourbond",
+        "url": "http://lp-ourbond.adalane.com",
+        "domain": "lp-ourbond.adalane.com",
+        "nginxConfig": "adalane-static-sites-updated.conf",
+        "notes": "Staging environment - lp-ourbond.adalane.com → /var/www/lp-ourbond"
+      },
+      "production": {
+        "type": "droplet",
+        "host": "24.199.118.174",
+        "user": "root",
+        "sshKey": "id_rsa_nopass",
+        "webroot": "/var/www/ourbond",
+        "url": "https://try.ourbond.com",
+        "domain": "try.ourbond.com",
+        "nginxConfig": "adalane-static-sites-updated.conf",
+        "ssl": "Let's Encrypt (auto-renew enabled)",
+        "notes": "Production environment with SSL - try.ourbond.com → /var/www/ourbond, HTTP redirects to HTTPS"
+      }
+    }
+  }
+}

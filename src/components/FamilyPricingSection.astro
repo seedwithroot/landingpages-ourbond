@@ -1,0 +1,395 @@
+---
+/**
+ * FamilyPricingSection — simplified pricing for family-only pages
+ * Displays a single family plan (not individual/family comparison)
+ *
+ * Usage:
+ *   import FamilyPricingSection from '../components/FamilyPricingSection.astro';
+ *   <FamilyPricingSection />
+ */
+
+import { basePricing, pricingLinks } from '../data/pricing.js';
+
+export interface Props {
+  eyebrow?: string;
+  headline?: string;
+  subheadline?: string;
+  saveBadgeText?: string;
+  bg?: string;
+}
+
+const {
+  eyebrow = 'Family Plan',
+  headline = 'Keep your whole family safe.',
+  subheadline = 'Up to 5 family members. Cancel any time. No contracts.',
+  saveBadgeText = 'Save up to 10%',
+  bg = '#f5f4f1',
+} = Astro.props;
+
+const plan = {
+  name: 'Family Plan',
+  subtitle: 'Up to 5 members',
+  featuresLabel: 'What your family gets:',
+  features: [
+    'Real-time location tracking for all family members',
+    'Arrival and departure alerts — automatic notifications',
+    'Live security agents — 24/7 via video, audio, or text',
+    'Journey monitoring with auto-escalation',
+    'Emergency services coordination',
+    'Plus all premium safety features',
+  ],
+  monthly: basePricing.family.monthly,
+  annual: basePricing.family.annual,
+  ctaText: 'Try 30 days free',
+  ctaHrefMonthly: pricingLinks.family.monthly,
+  ctaHrefAnnual: pricingLinks.family.annual,
+};
+
+const uid = `fp-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section
+  id="pricing"
+  data-pricing-uid={uid}
+  style={`background: ${bg}; padding: 3rem 0; position: relative;`}
+>
+  <div class="family-pricing-container">
+    {eyebrow && (
+      <p class="family-pricing-eyebrow">
+        {eyebrow}
+      </p>
+    )}
+    {headline && (
+      <h2 class="family-pricing-headline">
+        {headline}
+      </h2>
+    )}
+    {subheadline && (
+      <p class="family-pricing-subheadline">{subheadline}</p>
+    )}
+
+    <!-- Toggle -->
+    <div class="family-pricing-toggle">
+      <button data-period-btn="monthly" class="family-pricing-toggle-btn active">
+        Monthly
+      </button>
+      <button data-period-btn="annual" class="family-pricing-toggle-btn">
+        Annually
+        {saveBadgeText && (
+          <span class="family-pricing-save-badge">
+            {saveBadgeText}
+          </span>
+        )}
+      </button>
+    </div>
+
+    <!-- Single centered plan card -->
+    <div class="family-pricing-card-wrapper">
+      <div class="family-pricing-card">
+        <div class="family-pricing-card-badge">
+          Best Value
+        </div>
+        <div class="family-pricing-card-content">
+          <p class="family-pricing-card-name">{plan.name}</p>
+          {plan.subtitle && (
+            <p class="family-pricing-card-subtitle">{plan.subtitle}</p>
+          )}
+
+          <!-- Monthly price block -->
+          <div data-price-monthly class="family-pricing-price-block">
+            {plan.monthly.was && (
+              <p class="family-pricing-was-price">{plan.monthly.was}</p>
+            )}
+            <p class="family-pricing-price">
+              {plan.monthly.price}
+              <span class="family-pricing-unit">/mo</span>
+            </p>
+          </div>
+
+          <!-- Annual price block -->
+          <div data-price-annual class="family-pricing-price-block" style="display: none;">
+            {plan.annual.was && (
+              <p class="family-pricing-was-price">{plan.annual.was}</p>
+            )}
+            <p class="family-pricing-price">
+              {plan.annual.price}
+              <span class="family-pricing-unit">/mo</span>
+            </p>
+            {plan.annual.billed && (
+              <p class="family-pricing-billed">{plan.annual.billed}</p>
+            )}
+          </div>
+
+          {plan.featuresLabel && (
+            <p class="family-pricing-features-label">{plan.featuresLabel}</p>
+          )}
+          <ul class="family-pricing-features">
+            {plan.features.map(f => (
+              <li class="family-pricing-feature">
+                <span class="family-pricing-check">&#10003;</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            data-cta-link
+            data-href-monthly={plan.ctaHrefMonthly}
+            data-href-annual={plan.ctaHrefAnnual}
+            href={plan.ctaHrefMonthly}
+            class="family-pricing-cta"
+          >
+            {plan.ctaText}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .family-pricing-container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .family-pricing-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2563eb;
+    margin: 0 0 0.75rem;
+  }
+
+  .family-pricing-headline {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+  }
+
+  .family-pricing-subheadline {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: #555;
+    margin: 0 0 2rem;
+  }
+
+  .family-pricing-toggle {
+    display: inline-flex;
+    background: #fff;
+    border-radius: 999px;
+    padding: 0.25rem;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 2.5rem;
+    gap: 0;
+  }
+
+  .family-pricing-toggle-btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .family-pricing-toggle-btn.active {
+    background: #111;
+    color: #fff;
+  }
+
+  .family-pricing-save-badge {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .family-pricing-card-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .family-pricing-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #2563eb;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .family-pricing-card-badge {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border-radius: 14px 14px 0 0;
+    text-align: center;
+  }
+
+  .family-pricing-card-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .family-pricing-card-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 0.25rem;
+  }
+
+  .family-pricing-card-subtitle {
+    font-size: 0.9375rem;
+    color: #888;
+    margin: 0 0 1.5rem;
+  }
+
+  .family-pricing-price-block {
+    margin-bottom: 1.75rem;
+  }
+
+  .family-pricing-was-price {
+    font-size: 0.9375rem;
+    color: #999;
+    text-decoration: line-through;
+    margin: 0 0 0.25rem;
+  }
+
+  .family-pricing-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #111;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .family-pricing-unit {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #666;
+  }
+
+  .family-pricing-billed {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0.5rem 0 0;
+  }
+
+  .family-pricing-features-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111;
+    text-align: left;
+    margin: 0 0 0.75rem;
+  }
+
+  .family-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    text-align: left;
+  }
+
+  .family-pricing-feature {
+    font-size: 0.9375rem;
+    color: #333;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .family-pricing-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .family-pricing-cta {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-align: center;
+  }
+
+  .family-pricing-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+  }
+</style>
+
+<script define:vars={{ uid }}>
+  // Scoped toggle functionality
+  const section = document.querySelector(`[data-pricing-uid="${uid}"]`);
+  if (!section) {
+    console.error(`FamilyPricingSection: Could not find section with uid="${uid}"`);
+  } else {
+    const toggleBtns = section.querySelectorAll('[data-period-btn]');
+    const monthlyBlock = section.querySelector('[data-price-monthly]');
+    const annualBlock = section.querySelector('[data-price-annual]');
+    const ctaLink = section.querySelector('[data-cta-link]');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const period = btn.getAttribute('data-period-btn');
+        
+        // Update button states
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Toggle price blocks
+        if (period === 'monthly') {
+          monthlyBlock.style.display = 'block';
+          annualBlock.style.display = 'none';
+          if (ctaLink) {
+            const monthlyHref = ctaLink.getAttribute('data-href-monthly');
+            if (monthlyHref) ctaLink.setAttribute('href', monthlyHref);
+          }
+        } else {
+          monthlyBlock.style.display = 'none';
+          annualBlock.style.display = 'block';
+          if (ctaLink) {
+            const annualHref = ctaLink.getAttribute('data-href-annual');
+            if (annualHref) ctaLink.setAttribute('href', annualHref);
+          }
+        }
+      });
+    });
+  }
+</script>

@@ -120,6 +120,30 @@ export const audienceFeatures = {
       ],
     },
   },
+  'families': {
+    individual: {
+      featuresLabel: 'What you get:',
+      features: [
+        'Live agent ready for every family member',
+        'Track Me On The Go',
+        'Video Monitor Me',
+        'First responders coordinated if needed',
+        'Automatic arrival and departure alerts',
+        'Location sharing with the whole family',
+        '24/7 coverage',
+      ],
+    },
+    family: {
+      subtitle: 'Up to 5 members',
+      featuresLabel: 'Everything in Individual, plus:',
+      features: [
+        'Coverage for up to 5 members',
+        'Real-time location of all family members',
+        'Arrival and departure alerts for everyone',
+        'Shared safety dashboard',
+      ],
+    },
+  },
   'default': {
     individual: {
       featuresLabel: 'What you get:',

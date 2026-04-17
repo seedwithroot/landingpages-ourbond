@@ -81,6 +81,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </>
     )}
     
+    <!-- Google Ads Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18020509308"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18020509308');
+    </script>
+    
     <!-- Google Ads & UTM Parameter Tracking -->
     <script is:inline src="/scripts/track-params.js"></script>
   </head>
@@ -467,6 +476,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   
   p:last-child {
     margin-bottom: 0;
+  }
+
+  /* App Store Button Fix - Prevent Aspect Ratio Squishing on Mobile */
+  img[src*="/buttons/apple-light.png"],
+  img[src*="/buttons/google-light.png"],
+  img[alt*="App Store"],
+  img[alt*="Google Play"] {
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    min-width: 120px !important;
+  }
+
+  /* Mobile-specific fixes for app buttons */
+  @media (max-width: 768px) {
+    img[src*="/buttons/apple-light.png"],
+    img[src*="/buttons/google-light.png"],
+    img[alt*="App Store"],
+    img[alt*="Google Play"] {
+      max-width: 160px !important;
+      height: auto !important;
+    }
   }
 
 </style>

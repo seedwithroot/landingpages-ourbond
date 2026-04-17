@@ -1,21 +1,39 @@
 ---
 name: deployment
-description: 'Deploy static sites to shared nginx server (24.199.118.174). Use when: deploying to production, updating try.ourbond.com, deploying to droplet, checking nginx config, adding new domain mapping, or avoiding disruption to other hosted sites. Understands map-based multi-tenant nginx routing.'
+description: 'Deploy static sites to nginx servers. Use when: deploying to production, deploying to staging, updating try.ourbond.com or lp-ourbond.adalane.com, checking nginx config, adding new domain mapping, or avoiding disruption to other hosted sites. Understands map-based multi-tenant nginx routing.'
 ---
 
-# Deployment to Shared Nginx Server
+# Deployment to Nginx Servers
 
-This skill handles safe deployments to the shared static sites droplet at 24.199.118.174, ensuring nginx configuration is understood before deployment to avoid disrupting other hosted sites.
+This skill handles safe deployments to the static site servers, ensuring nginx configuration is understood before deployment to avoid disrupting other hosted sites.
+
+## Server Infrastructure
+
+**Production Server**: 24.199.118.174
+- Domain: try.ourbond.com
+- Web root: /var/www/ourbond
+- SSL: Let's Encrypt (auto-renew enabled)
+
+**Staging Server**: 137.184.116.148
+- Domain: lp-ourbond.adalane.com
+- Web root: /var/www/lp-ourbond
+- SSL: Not configured (HTTP only)
 
 ## Pre-Deployment Checklist
 
 Always complete these steps IN ORDER before deploying:
 
-### 1. Read Nginx Configuration First
-**MANDATORY:** Always read the current nginx config on the server to understand routing.
+### 1. Identify Target Environment
+Determine which server you're deploying to:
 
+**Production** (24.199.118.174):
 ```powershell
 ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@24.199.118.174 "cat /etc/nginx/sites-available/adalane-static-sites"
+```
+
+**Staging** (137.184.116.148):
+```powershell
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@137.184.116.148 "cat /etc/nginx/sites-available/adalane-static-sites"
 ```
 
 Look for:
@@ -25,8 +43,9 @@ Look for:
 - Any custom location blocks
 
 ### 2. Verify Domain Mapping
-Confirm the target domain exists in the nginx map block. Example:
+Confirm the target domain exists in the nginx map block on the correct server:
 
+**Production nginx map**:
 ```nginx
 map $host $site_folder {
     try.ourbond.com    ourbond;
@@ -34,15 +53,43 @@ map $host $site_folder {
 }
 ```
 
+**Staging nginx map**:
+```nginx
+map $host $site_folder {
+    lp-ourbond.adalane.com    lp-ourbond;
+    # ... other domains
+}
+```
+
 If deploying to a **new domain**, you must:
-1. Add the domain to the map block
+1. Add the domain to the map block on the correct server
 2. Reload nginx config: `ssh ... "nginx -t && systemctl reload nginx"`
-3. Verify SSL cert exists or generate with certbot
+3. Verify SSL cert exists or generate with certbot (production only)
 
 ### 3. Identify Web Root
-Based on the map, determine the web root path:
-- Domain: `try.ourbond.com` → Folder: `ourbond` → Web root: `/var/www/ourbond/`
-- Pattern: `/var/www/$site_folder/`
+Based on the map and server, determine the web root path:
+- Production: `try.ourbond.com` → `/var/www/ourbond/` on 24.199.118.174
+**Deploy to staging**:
+```powershell
+npm run build
+npm run deploy:safe ourbond staging
+```
+
+**Deploy to production** (requires confirmation):
+```powershell
+npm run build
+npm run deploy:safe ourbond production
+```
+
+### Method 2: Manual SCP Deployment
+For staging (137.184.116.148):
+```powershell
+npm run build
+scp -i "$env:USERPROFILE\.ssh\id_rsa_nopass" -r docs/* root@137.184.116.148:/var/www/lp-ourbond/
+```
+
+For production (24.199.118.174):
+- Staging: `lp-ourbond.adalane.com` → `/var/www/lp-ourbond/` on 137.184.116.148
 
 ### 4. Build Locally First
 Always build and verify locally before deploying:
@@ -88,9 +135,15 @@ Always deploy to the specific site folder: `/var/www/<site_folder>/`
 **Bad:** `scp dist/* root@24.199.118.174:/var/www/`  
 **Good:** `scp dist/* root@24.199.118.174:/var/www/ourbond/`
 
-### Rule 2: Verify Target Folder Before Deployment
-SSH in and list the folder to confirm you're deploying to the right location:
+### Rule 2: Verify Target Server and Folder Before Deployment
+SSH into the CORRECT server and verify the folder:
 
+**Staging:**
+```powershell
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@137.184.116.148 "ls -la /var/www/lp-ourbond/"
+```
+
+**Production:**
 ```powershell
 ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@24.199.118.174 "ls -la /var/www/ourbond/"
 ```
@@ -99,21 +152,27 @@ ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@24.199.118.174 "ls -la /var/ww
 When editing nginx config, ALWAYS test first:
 
 ```powershell
-ssh ... "nginx -t"
-# Only reload if test passes:
-ssh ... "nginx -t && systemctl reload nginx"
+ssh ... "nginx -t" on the appropriate server:
+
+**Production:**
+```powershell
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@24.199.118.174 "cat /etc/nginx/sites-available/adalane-static-sites | grep -A 20 'map \$host'"
 ```
 
-### Rule 4: Check Active Sites Before Changes
-List all currently mapped domains:
-
+**Staging:**
 ```powershell
-ssh ... "cat /etc/nginx/sites-available/adalane-static-sites | grep -A 20 'map \$host'"
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@137.184.116.148 "cat /etc/nginx/sites-available/adalane-static-sites | grep -A 20 'map \$host'"
 ```
 
 ### Rule 5: Backup Before Major Changes
 Before editing nginx config or deploying significant updates:
 
+```powershell
+# Backup nginx config (replace IP with correct server)
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@<SERVER_IP> "cp /etc/nginx/sites-available/adalane-static-sites /etc/nginx/sites-available/adalane-static-sites.backup-$(date +%Y%m%d)"
+
+# Backup site folder (optional)
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@<SERVER_IP> "tar -czf /var/backups/<sitename>-$(date +%Y%m%d).tar.gz -C /var/www <sitename>
 ```powershell
 # Backup nginx config
 ssh ... "cp /etc/nginx/sites-available/adalane-static-sites /etc/nginx/sites-available/adalane-static-sites.backup-$(date +%Y%m%d)"
@@ -144,8 +203,22 @@ curl -I https://try.ourbond.com
 ```
 
 ### 3. Check Nginx Logs
-If issues occur, check logs:
+If issues occur, check lStaging
+Example: Update lp-ourbond.adalane.com (staging)
 
+```powershell
+# 1. Build
+npm run build
+
+# 2. Deploy to staging server (137.184.116.148)
+npm run deploy:safe ourbond staging
+
+# 3. Verify
+curl -I http://lp-ourbond.adalane.com
+```
+
+### Scenario: Deploy to Production
+Example: Update try.ourbond.com (production)
 ```powershell
 # Error log
 ssh ... "tail -50 /var/log/nginx/error.log"
@@ -204,9 +277,21 @@ These are handled in the build process (see `hashed-urls.csv`). Nginx serves the
 
 ## Server Details
 
+### Production Server
 - **Host:** 24.199.118.174
+- **Domain:** try.ourbond.com
+- **Web Root:** /var/www/ourbond
 - **SSH User:** root
 - **SSH Key:** `$env:USERPROFILE\.ssh\id_rsa_nopass`
+- **SSL:** Let's Encrypt (auto-renew)
+
+### Staging Server
+- **Host:** 137.184.116.148
+- **Domain:** lp-ourbond.adalane.com
+- **Web Root:** /var/www/lp-ourbond
+- **SSH User:** root
+- **SSH Key:** `$env:USERPROFILE\.ssh\id_rsa_nopass`
+- **SSL:** None (HTTP only)
 - **Nginx Config:** `/etc/nginx/sites-available/adalane-static-sites`
 - **Enabled Config:** `/etc/nginx/sites-enabled/` (symlinked)
 - **Web Roots:** `/var/www/<site_folder>/`

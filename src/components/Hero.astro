@@ -39,8 +39,8 @@ const {
         {subheadline && <p class="hero-subheadline">{subheadline}</p>}
         {appButtons && (
           <div class="hero-app-buttons">
-            {appButtons.apple && <img src="/buttons/apple-light.png" alt="Download on the App Store" style="height: 48px; width: auto;" />}
-            {appButtons.google && <img src="/buttons/google-light.png" alt="Get it on Google Play" style="height: 48px; width: auto;" />}
+            {appButtons.apple && <img src="/buttons/apple-light.png" alt="Download on the App Store" class="app-button-img" />}
+            {appButtons.google && <img src="/buttons/google-light.png" alt="Get it on Google Play" class="app-button-img" />}
           </div>
         )}
         <div class="hero-cta-wrapper">
@@ -141,6 +141,14 @@ const {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 1.5rem;
+  }
+
+  .app-button-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    min-width: 120px;
   }
 
   .hero-cta-wrapper {

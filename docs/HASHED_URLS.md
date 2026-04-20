@@ -7,11 +7,17 @@ This file tracks the obfuscated URLs that map to actual landing pages.
 | Hashed URL | Maps To | Hash Algorithm |
 |------------|---------|----------------|
 | `/lw-7e48d4ef` | `/services/merged-lone-workers-individual-pricing/` | SHA256(first 8 chars) |
+| `/fs-573c4f54` | `/services/family/safety/` | SHA256(first 8 chars) |
 
 ## Full URLs
 
+**Lone Workers:**
 - **Hashed:** https://try.ourbond.com/lw-7e48d4ef
 - **Actual:** https://try.ourbond.com/services/merged-lone-workers-individual-pricing/
+
+**Family Safety:**
+- **Hashed:** https://try.ourbond.com/fs-573c4f54
+- **Actual:** https://try.ourbond.com/services/family/safety/
 
 ## How It Works
 
@@ -40,7 +46,8 @@ The nginx rewrite happens server-side, so:
    ssh -i ~/.ssh/id_rsa_nopass root@24.199.118.174 "nginx -t && systemctl reload nginx"
    ```
 
-4. **Update this file** with the new mapping
+4. **Update this file*for "Lone Workers" campaigns
+- Using `/fs-` prefix for "Family Safety" campaigns
 
 ## Notes
 

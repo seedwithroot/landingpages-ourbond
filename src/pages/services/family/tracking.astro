@@ -222,7 +222,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
   <div style="background: #f5f4f1; border-bottom: 1px solid #e5e5e5; padding: 0.75rem 0; position: relative;">
     <div class="container" style="display: flex; justify-content: center;">
       <picture>
-        <source media="(max-width: 768px)" srcset="https://www.ourbond.com/wp-content/uploads/slider113/partners_mobile.png" />
+        <source media="(max-width: 768px)" srcset="/images/partners_mobile_oneline.png" />
         <source media="(min-width: 769px)" srcset="https://www.ourbond.com/wp-content/uploads/slider113/partners_fully.png" />
         <img
           src="https://www.ourbond.com/wp-content/uploads/slider113/partners_fully.png"
@@ -528,6 +528,7 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
   .feature-list li::before { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.5 6.062l1.772-1.906L4.347 6.12 10.052.6 11.5 2.528 4.297 9.4.5 6.062z' fill='%23fff'/%3E%3C/svg%3E"); background-position: 50%; background-repeat: no-repeat; background-color: #7870c4; content: ""; display: inline-block; flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; margin-right: 12px; }
   .feature-media { display: flex; justify-content: center; align-items: center; }
   .feature-img { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+  .feature-row--media-first .feature-media { order: -1; }
   @media (max-width: 768px) {
     .hero-grid, .proof-grid, .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-grid h1 { font-size: 2.25rem !important; }
@@ -558,3 +559,5 @@ const featureGridHeadline = page.featureGrid.headline.replace('{focusedService}'
     btn.addEventListener('click', play);
   });
 </script>
+
+

@@ -127,6 +127,21 @@ scp -i "$env:USERPROFILE\.ssh\id_rsa_nopass" -r dist/services/* root@24.199.118.
 
 **Important:** Use `-r` for directories, ensure trailing `/` on destination to deploy contents (not folder itself).
 
+### CRITICAL: Root Index.html for Production
+
+**After deploying to production (24.199.118.174), ALWAYS remove the root index.html:**
+
+```powershell
+ssh -i "$env:USERPROFILE\.ssh\id_rsa_nopass" root@24.199.118.174 "rm /var/www/ourbond/index.html"
+```
+
+**Why:** The root `index.html` is a development page directory. Production has an nginx redirect configured for `https://try.ourbond.com/` → `https://www.ourbond.com/`, which only works if there's no index.html at the root.
+
+**Alternative: Use rsync with exclude:**
+```powershell
+rsync -avz --delete --exclude='index.html' -e "ssh -i \"$env:USERPROFILE\.ssh\id_rsa_nopass\"" dist/ root@24.199.118.174:/var/www/ourbond/
+```
+
 ## Shared Server Safety Rules
 
 ### Rule 1: NEVER Deploy to Root /var/www/

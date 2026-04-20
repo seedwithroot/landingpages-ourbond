@@ -92,6 +92,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     
     <!-- Google Ads & UTM Parameter Tracking -->
     <script is:inline src="/scripts/track-params.js"></script>
+    
+    <!-- Meta Pixel Code -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1599179827816663');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1599179827816663&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -116,16 +134,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             </div>
             <div class="nav-buttons">
               <a href={getAppStoreLink('nav')} aria-label="Download on the App Store">
-                <img src="/buttons/apple-light.png" alt="App Store" style="height: 32px; width: auto; display: block; filter: invert(1);" />
+                <picture>
+                  <source media="(max-width: 768px)" srcset="/buttons/AppStoreMobile.png" />
+                  <img src="/buttons/apple-light.png" alt="App Store" style="height: 32px; width: auto; display: block; filter: invert(1);" />
+                </picture>
               </a>
               <a href={getGooglePlayLink('nav')} aria-label="Get it on Google Play">
-                <img src="/buttons/google-light.png" alt="Google Play" style="height: 32px; width: auto; display: block; filter: invert(1);" />
+                <picture>
+                  <source media="(max-width: 768px)" srcset="/buttons/GooglePlayMobile.png" />
+                  <img src="/buttons/google-light.png" alt="Google Play" style="height: 32px; width: auto; display: block; filter: invert(1);" />
+                </picture>
               </a>
             </div>
           </div>
         </div>
       </div>
     </nav>
+    
+    <!-- Mobile Trial Banner -->
+    <div class="mobile-trial-banner">
+      <div class="container">
+        <div class="mobile-trial-content">
+          <span class="mobile-trial-dot"></span>
+          Free 30-day trial
+        </div>
+      </div>
+    </div>
     
     <slot />
     <PageReview />
@@ -320,6 +354,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     opacity: 0.8;
   }
   
+  /* Mobile Trial Banner - Hidden on Desktop */
+  .mobile-trial-banner {
+    display: none;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    padding: 0.5rem 0;
+  }
+
+  .mobile-trial-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .mobile-trial-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+  
   .logo-link {
     display: flex;
     align-items: center;
@@ -496,6 +560,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     img[alt*="Google Play"] {
       max-width: 160px !important;
       height: auto !important;
+    }
+    
+    /* Remove filter from mobile-specific button images */
+    img[src*="AppStoreMobile.png"],
+    img[src*="GooglePlayMobile.png"] {
+      filter: none !important;
+      height: auto !important;
+      max-width: 140px !important;
+    }
+    
+    /* Show mobile trial banner */
+    .mobile-trial-banner {
+      display: block;
+    }
+    
+    /* Hide trial text from nav on mobile */
+    .nav-trial-text {
+      display: none;
+    }
+    
+    /* Center nav content on mobile */
+    .nav-content {
+      justify-content: center;
+    }
+    
+    /* Nav buttons centered on mobile */
+    .nav-cta {
+      flex-direction: row;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    
+    /* Adjust button gap on mobile */
+    .nav-buttons {
+      gap: 0.75rem;
+    }
+    
+    /* Increase button size on mobile for better visibility */
+    .nav-buttons img {
+      height: 32px !important;
+    }
+    
+    /* Hide logo on mobile to center buttons */
+    .logo-link {
+      display: none;
     }
   }
 

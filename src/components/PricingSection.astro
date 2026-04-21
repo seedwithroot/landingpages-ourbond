@@ -491,5 +491,38 @@ const uid = `ps-${Math.random().toString(36).slice(2, 8)}`;
 
     mBtn.addEventListener('click', function () { applyPeriod(false); });
     aBtn.addEventListener('click', function () { applyPeriod(true); });
+    
+    // Track CTA button clicks
+    section.querySelectorAll('[data-cta-link]').forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        var buttonText = button.textContent.trim();
+        var buttonUrl = button.getAttribute('href') || '';
+        var planName = button.closest('.pricing-card')?.querySelector('.pricing-card-name')?.textContent?.trim() || 'Unknown Plan';
+        var period = section.querySelector('[data-period-btn].active')?.getAttribute('data-period-btn') || 'monthly';
+        
+        // Send to GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'pricing_cta_click', {
+            'button_text': buttonText,
+            'button_url': buttonUrl,
+            'plan_name': planName,
+            'billing_period': period,
+            'button_location': 'pricing_section',
+            'event_category': 'conversion',
+            'event_label': planName + ' - ' + period
+          });
+        }
+        
+        // Send to Meta Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'InitiateCheckout', {
+            content_name: planName,
+            content_category: 'pricing',
+            value: period === 'annual' ? 10.0 : 15.0,
+            currency: 'USD'
+          });
+        }
+      });
+    });
   })();
 </script>

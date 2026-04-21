@@ -391,5 +391,38 @@ const uid = `fp-${Math.random().toString(36).slice(2, 8)}`;
         }
       });
     });
+    
+    // Track CTA button clicks
+    const ctaButton = section.querySelector('[data-cta-link]');
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        const buttonText = ctaButton.textContent?.trim() || 'Try 30 days free';
+        const buttonUrl = ctaButton.getAttribute('href') || '';
+        const period = section.querySelector('[data-period-btn].active')?.getAttribute('data-period-btn') || 'monthly';
+        
+        // Send to GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'pricing_cta_click', {
+            'button_text': buttonText,
+            'button_url': buttonUrl,
+            'plan_name': 'Family Plan',
+            'billing_period': period,
+            'button_location': 'family_pricing_section',
+            'event_category': 'conversion',
+            'event_label': 'Family Plan - ' + period
+          });
+        }
+        
+        // Send to Meta Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'InitiateCheckout', {
+            content_name: 'Family Plan',
+            content_category: 'pricing',
+            value: period === 'annual' ? 10.0 : 15.0,
+            currency: 'USD'
+          });
+        }
+      });
+    }
   }
 </script>

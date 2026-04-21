@@ -39,8 +39,16 @@ const {
         {subheadline && <p class="hero-subheadline">{subheadline}</p>}
         {appButtons && (
           <div class="hero-app-buttons">
-            {appButtons.apple && <img src="/buttons/apple-light.png" alt="Download on the App Store" class="app-button-img" />}
-            {appButtons.google && <img src="/buttons/google-light.png" alt="Get it on Google Play" class="app-button-img" />}
+            {appButtons.apple && (
+              <a href={appButtons.apple} class="app-button-link" target="_blank" rel="noopener noreferrer">
+                <img src="/buttons/apple-light.png" alt="Download on the App Store" class="app-button-img" />
+              </a>
+            )}
+            {appButtons.google && (
+              <a href={appButtons.google} class="app-button-link" target="_blank" rel="noopener noreferrer">
+                <img src="/buttons/google-light.png" alt="Get it on Google Play" class="app-button-img" />
+              </a>
+            )}
           </div>
         )}
         <div class="hero-cta-wrapper">
@@ -214,3 +222,66 @@ const {
     }
   }
 </style>
+
+<script>
+  // Track CTA button clicks
+  document.addEventListener('DOMContentLoaded', () => {
+    // Track primary CTA buttons
+    const ctaButtons = document.querySelectorAll('.cta-primary');
+    ctaButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const buttonText = button.textContent?.trim() || 'CTA Button';
+        const buttonUrl = button.getAttribute('href') || '';
+        
+        // Send to GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'cta_click', {
+            'button_text': buttonText,
+            'button_url': buttonUrl,
+            'button_location': 'hero',
+            'event_category': 'engagement',
+            'event_label': buttonText
+          });
+        }
+        
+        // Send to Meta Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: buttonText,
+            content_category: 'cta_click'
+          });
+        }
+      });
+    });
+    
+    // Track App Store button clicks
+    const appButtons = document.querySelectorAll('.app-button-link');
+    appButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const img = button.querySelector('img');
+        const altText = img?.getAttribute('alt') || 'App Store';
+        const store = altText.includes('App Store') ? 'apple' : 'google';
+        const buttonUrl = button.getAttribute('href') || '';
+        
+        // Send to GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'app_store_click', {
+            'store_name': store,
+            'button_url': buttonUrl,
+            'button_location': 'hero',
+            'event_category': 'app_download',
+            'event_label': altText
+          });
+        }
+        
+        // Send to Meta Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'InitiateCheckout', {
+            content_name: altText,
+            content_category: 'app_download'
+          });
+        }
+      });
+    });
+  });
+</script>

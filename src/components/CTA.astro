@@ -145,3 +145,34 @@ const {
     }
   }
 </style>
+<script>
+  // Track CTA button clicks
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctaButtons = document.querySelectorAll('.cta-large');
+    ctaButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const buttonText = button.textContent?.trim() || 'CTA Button';
+        const buttonUrl = button.getAttribute('href') || '';
+        
+        // Send to GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'cta_click', {
+            'button_text': buttonText,
+            'button_url': buttonUrl,
+            'button_location': 'cta_section',
+            'event_category': 'engagement',
+            'event_label': buttonText
+          });
+        }
+        
+        // Send to Meta Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: buttonText,
+            content_category: 'cta_click'
+          });
+        }
+      });
+    });
+  });
+</script>
